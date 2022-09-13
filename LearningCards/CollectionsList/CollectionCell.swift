@@ -14,6 +14,7 @@ class CollectionCell: UICollectionViewCell {
     func setUpCell(collectionToDisplay: Collection) {
         
         collectionLabel.text = collectionToDisplay.title
+        collectionLabel.numberOfLines = 0
         
         // border radius
         layer.cornerRadius = 10.0

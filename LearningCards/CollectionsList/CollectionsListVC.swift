@@ -11,8 +11,10 @@ class CollectionsListVC: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var messageLabel: UILabel!
+        
     var model = ContentModel()
-    var collections = [Collection]()
+    //var collections = [Collection]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,15 +24,65 @@ class CollectionsListVC: UIViewController {
         
         collectionView.showsVerticalScrollIndicator = false
         
-        model.delegate = self
         model.loadSavedCollections()
+        
+        //TODO: Correct label
+        messageLabel.text = "You have no collections yet"
+        
+        //model.delegate = self
+        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        collectionView.reloadData()
+        
+        if ContentModel.collections.count > 0 {
+            
+            messageLabel.alpha = 0
+        }
+        else {
+            messageLabel.alpha = 1
+        }
+        
+    }
+        
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cardsVC = segue.destination as! CardsVC
+        
+        let indexPath = collectionView.indexPathsForSelectedItems?[0]
+        
+        cardsVC.collectionId = indexPath?.row
+    }
+    
+    
+    @IBAction func longPressToRemoveCollection(_ sender: Any) {
+        
+        
+        //TODO: Pick between edit and delete collection
+        
+        let alert = UIAlertController(title: "Delete", message: "edf", preferredStyle: .alert)
+  
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+            //
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+//        let button = UIButton()
+//        
+//        button.menu = UIMenu()
+        
+        present(alert, animated: true)
+    }
+    
     
     
     @IBAction func addCollectionButton(_ sender: Any) {
         
         // TODO: Correct message
-        let alert = UIAlertController(title: "", message: "Enter collection name", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Create collection", message: "Enter collection title", preferredStyle: .alert)
         
         // Add text field
         alert.addTextField { textField in
@@ -43,22 +95,46 @@ class CollectionsListVC: UIViewController {
             
             let collectionTitle = alert.textFields![0].text ?? ""
             
-            self.model.addCollection(title: collectionTitle == "" ? "Collection \(self.collections.count + 1)" : collectionTitle)
+            self.model.addCollection(title: collectionTitle == "" ? "Collection \(ContentModel.collections.count + 1)" : collectionTitle)
+            
+            if ContentModel.collections.count > 0 {
+                
+                self.messageLabel.alpha = 0
+            }
+            
+            self.collectionView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         
-        present(alert, animated: false)
+        present(alert, animated: true)
+    }
+    
+    @IBAction func removeAllCollections(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Delete all collections?", message: "Are you sure you want to delete all collections?", preferredStyle: .alert)
+        
+        // Remove action
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+            
+            self.model.removeAllCollections()
+            self.collectionView.reloadData()
+            self.messageLabel.alpha = 1
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true)
     }
 }
 
-extension CollectionsListVC: ContentModelDelegate {
-    
-    func loadCollections(collections: [Collection]) {
-        self.collections = collections
-        self.collectionView.reloadData()
-    }
-}
+//extension CollectionsListVC: ContentModelDelegate {
+//
+//    func loadCollections(collections: [Collection]) {
+//        self.collections = collections
+//        self.collectionView.reloadData()
+//    }
+//}
 
 
 // MARK: - CollectionView
@@ -68,7 +144,8 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
     
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return collections.count
+        
+        return ContentModel.collections.count
     }
     
     
@@ -85,6 +162,7 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
     
     // Spacing between lines of cells
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 20
     }
     
@@ -94,7 +172,7 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionCell
         
-        cell.setUpCell(collectionToDisplay: collections[indexPath.row])
+        cell.setUpCell(collectionToDisplay: ContentModel.collections[indexPath.row])
         
         return cell
     }
@@ -103,6 +181,5 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         performSegue(withIdentifier: "goToCards", sender: self)
-        
     }
 }
