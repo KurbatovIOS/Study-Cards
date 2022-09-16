@@ -92,7 +92,7 @@ class CardsVC: UIViewController {
             let front = alert.textFields?[0].text
             let back = alert.textFields?[1].text
             
-            guard front != nil && front != "" && back != nil && back != "" else {
+            guard front != nil && front?.trimmingCharacters(in: .whitespaces) != "" && back != nil && back?.trimmingCharacters(in: .whitespaces) != "" else {
                 return
             }
             

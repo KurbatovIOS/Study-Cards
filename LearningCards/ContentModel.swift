@@ -60,7 +60,6 @@ class ContentModel {
         ContentModel.collections.remove(at: collectionId)
         
         save()
-        //self.delegate?.loadCollections(collections: self.collections)
     }
     
     func removeAllCollections() {

@@ -70,7 +70,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-Vm-jIE">
-                                                    <rect key="frame" x="42" y="53.5" width="44.5" height="21"/>
+                                                    <rect key="frame" x="42" y="54" width="44.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -84,7 +84,6 @@
                                         <gestureRecognizers/>
                                         <connections>
                                             <outlet property="collectionLabel" destination="KdK-Vm-jIE" id="Tqx-2N-2Sg"/>
-                                            <outletCollection property="gestureRecognizers" destination="Omg-D2-Vty" appends="YES" id="8H7-uE-goF"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.0" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="hiddenCell" id="tjm-J8-9DJ">
@@ -118,7 +117,7 @@
                     <navigationItem key="navigationItem" title="Collections" id="8h0-9e-44b">
                         <barButtonItem key="backBarButtonItem" title=" " id="pOM-7R-yem"/>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="trash.fill" catalog="system" id="qI5-vB-rwI">
+                            <barButtonItem title="Item" image="trash" catalog="system" id="qI5-vB-rwI">
                                 <connections>
                                     <action selector="removeAllCollections:" destination="tTg-rE-1Iu" id="6Ip-zG-ppy"/>
                                 </connections>
@@ -137,11 +136,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wfv-aF-gcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="Omg-D2-Vty">
-                    <connections>
-                        <action selector="longPressToRemoveCollection:" destination="tTg-rE-1Iu" id="wnh-gx-Q99"/>
-                    </connections>
-                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-301.44927536231887" y="841.74107142857144"/>
         </scene>
@@ -202,7 +196,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Cards" id="roV-A1-IAd">
                         <rightBarButtonItems>
-                            <barButtonItem image="trash.fill" catalog="system" id="GY0-Gz-JMT">
+                            <barButtonItem image="trash" catalog="system" id="GY0-Gz-JMT">
                                 <connections>
                                     <action selector="removeButtonAction:" destination="CCm-bN-5C2" id="V71-Dt-ris"/>
                                 </connections>
@@ -391,7 +385,7 @@
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="shuffle.circle.fill" catalog="system" width="128" height="121"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
-        <image name="trash.fill" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

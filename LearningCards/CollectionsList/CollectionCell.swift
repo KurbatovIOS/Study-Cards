@@ -11,8 +11,11 @@ class CollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var collectionLabel: UILabel!
     
+    @IBOutlet weak var buttonLabel: UIButton!
+    
+    
     func setUpCell(collectionToDisplay: Collection) {
-        
+                
         collectionLabel.text = collectionToDisplay.title
         collectionLabel.numberOfLines = 0
         

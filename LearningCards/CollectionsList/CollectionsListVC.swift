@@ -12,9 +12,10 @@ class CollectionsListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var messageLabel: UILabel!
-        
+    
+   
+    
     var model = ContentModel()
-    //var collections = [Collection]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +25,14 @@ class CollectionsListVC: UIViewController {
         
         collectionView.showsVerticalScrollIndicator = false
         
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.longPressAction(_:)))
+        
+        collectionView.addGestureRecognizer(longPressGesture)
+        
         model.loadSavedCollections()
         
         //TODO: Correct label
         messageLabel.text = "You have no collections yet"
-        
-        //model.delegate = self
         
     }
     
@@ -46,7 +49,9 @@ class CollectionsListVC: UIViewController {
         }
         
     }
-        
+    
+   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let cardsVC = segue.destination as! CardsVC
@@ -56,28 +61,44 @@ class CollectionsListVC: UIViewController {
         cardsVC.collectionId = indexPath?.row
     }
     
-    
-    @IBAction func longPressToRemoveCollection(_ sender: Any) {
+    @objc func longPressAction(_ gesture: UIGestureRecognizer) {
         
+        let point = gesture.location(in: self.collectionView)
         
-        //TODO: Pick between edit and delete collection
+        if let indexPath = self.collectionView.indexPathForItem(at: point) {
+            
+            print(indexPath.row)
+            
+            //TODO: - Create alert
+            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                        
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                
+                self.model.removeCollection(collectionId: indexPath.row)
+                self.collectionView.reloadData()
+                
+                if ContentModel.collections.count < 1 {
+                    
+                    self.messageLabel.alpha = 1
+                }
+            }
+            
+            let renameAction = UIAlertAction(title: "Rename", style: .default) { _ in
+                //
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            
+            actionSheet.addAction(renameAction)
+            actionSheet.addAction(deleteAction)
+            actionSheet.addAction(cancelAction)
+            
+            present(actionSheet, animated: true)
+        }
         
-        let alert = UIAlertController(title: "Delete", message: "edf", preferredStyle: .alert)
-  
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-            //
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-//        let button = UIButton()
-//        
-//        button.menu = UIMenu()
-        
-        present(alert, animated: true)
     }
     
-    
+    // MARK: - TopBar buttons
     
     @IBAction func addCollectionButton(_ sender: Any) {
         
@@ -95,7 +116,7 @@ class CollectionsListVC: UIViewController {
             
             let collectionTitle = alert.textFields![0].text ?? ""
             
-            self.model.addCollection(title: collectionTitle == "" ? "Collection \(ContentModel.collections.count + 1)" : collectionTitle)
+            self.model.addCollection(title: collectionTitle.trimmingCharacters(in: .whitespaces) == "" ? "Collection \(ContentModel.collections.count + 1)" : collectionTitle)
             
             if ContentModel.collections.count > 0 {
                 
@@ -112,29 +133,24 @@ class CollectionsListVC: UIViewController {
     
     @IBAction func removeAllCollections(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Delete all collections?", message: "Are you sure you want to delete all collections?", preferredStyle: .alert)
-        
-        // Remove action
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+        if !ContentModel.collections.isEmpty{
             
-            self.model.removeAllCollections()
-            self.collectionView.reloadData()
-            self.messageLabel.alpha = 1
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(alert, animated: true)
+            let alert = UIAlertController(title: "Delete all collections?", message: "Are you sure you want to delete all collections?", preferredStyle: .alert)
+            
+            // Remove action
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                self.model.removeAllCollections()
+                self.collectionView.reloadData()
+                self.messageLabel.alpha = 1
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            present(alert, animated: true)
+        }
     }
 }
-
-//extension CollectionsListVC: ContentModelDelegate {
-//
-//    func loadCollections(collections: [Collection]) {
-//        self.collections = collections
-//        self.collectionView.reloadData()
-//    }
-//}
 
 
 // MARK: - CollectionView
@@ -176,7 +192,6 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
         
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
