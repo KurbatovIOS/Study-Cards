@@ -6,23 +6,12 @@
 //
 
 import Foundation
-
-//protocol ContentModelDelegate {
-//
-//    func loadCollections(collections: [Collection])
-//}
-
-
-//var collections = [Collection]()
+import UIKit
 
 
 class ContentModel {
     
-    //var collections = [Collection]()
-    //var delegate: ContentModelDelegate?
-    
     static var collections = [Collection]()
-    
     
     // MARK: - Data Managment
     func save() {
@@ -40,11 +29,27 @@ class ContentModel {
             if let decoded = try? JSONDecoder().decode([Collection].self, from: data) {
                 
                 ContentModel.collections = decoded
-                
-                //self.delegate?.loadCollections(collections: collections)
             }
         }
     }
+    
+    func createDeleteAlert(alertTitle: String, alertMessage: String, index: Int) -> UIAlertController {
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            
+            self.removeCollection(collectionId: index)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        return alert
+    }
+    
     
     // MARK: - Collection Section
     func addCollection(title: String) {
@@ -52,7 +57,6 @@ class ContentModel {
         ContentModel.collections.append(Collection(id: UUID(), title: title))
         
         save()
-        //self.delegate?.loadCollections(collections: self.collections)
     }
     
     func removeCollection(collectionId: Int) {
@@ -77,5 +81,4 @@ class ContentModel {
         
         save()
     }
-    
 }

@@ -43,7 +43,7 @@ class CardsVC: UIViewController {
     }
     
     //MARK: - Bar buttons
-    
+    //TODO: Make button remove all cards instead of collection itself
     @IBAction func removeButtonAction(_ sender: Any) {
         
         let alert = UIAlertController(title: "Delete \"\(ContentModel.collections[collectionId ?? 0].title)\"?", message: "Are you sure you want to delete this collection?", preferredStyle: .alert)

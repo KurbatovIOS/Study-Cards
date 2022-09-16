@@ -13,8 +13,6 @@ class CollectionsListVC: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
     
-   
-    
     var model = ContentModel()
     
     override func viewDidLoad() {
@@ -47,11 +45,9 @@ class CollectionsListVC: UIViewController {
         else {
             messageLabel.alpha = 1
         }
-        
     }
     
-   
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let cardsVC = segue.destination as! CardsVC
@@ -66,25 +62,70 @@ class CollectionsListVC: UIViewController {
         let point = gesture.location(in: self.collectionView)
         
         if let indexPath = self.collectionView.indexPathForItem(at: point) {
-            
-            print(indexPath.row)
-            
-            //TODO: - Create alert
+                        
+            // Main alert
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                         
+            // Delete action
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
                 
-                self.model.removeCollection(collectionId: indexPath.row)
-                self.collectionView.reloadData()
-                
-                if ContentModel.collections.count < 1 {
-                    
-                    self.messageLabel.alpha = 1
+                let alert = UIAlertController(title: "Delete \(ContentModel.collections[indexPath.row].title)?", message: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", preferredStyle: .alert)
+
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+
+                    self.model.removeCollection(collectionId: indexPath.row)
+                    self.collectionView.reloadData()
+
+                    if ContentModel.collections.count < 1 {
+
+                        self.messageLabel.alpha = 1
+                    }
                 }
+
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+                alert.addAction(deleteAction)
+                alert.addAction(cancelAction)
+
+                self.present(alert, animated: true)
+                
+//                let alert = self.model.createDeleteAlert(alertTitle: "Delete \(ContentModel.collections[indexPath.row].title)?", alertMessage: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", index: indexPath.row)
+                
+               // self.present(alert, animated: true)
             }
             
             let renameAction = UIAlertAction(title: "Rename", style: .default) { _ in
-                //
+                
+                let alert = UIAlertController(title: "Rename \(ContentModel.collections[indexPath.row].title)", message: nil, preferredStyle: .alert)
+                
+                alert.addTextField { textField in
+                    
+                    textField.text = ContentModel.collections[indexPath.row].title
+                    textField.keyboardType = .default
+                }
+                
+                let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
+                    
+                    guard let newTitle = alert.textFields?[0].text else {
+                        return
+                    }
+                    
+                    if newTitle.trimmingCharacters(in: .whitespaces) != "" {
+                        
+                        ContentModel.collections[indexPath.row].title = newTitle
+                        
+                        self.model.save()
+                        self.collectionView.reloadData()
+                    }
+                }
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+                
+                alert.addAction(doneAction)
+                alert.addAction(cancelAction)
+                
+                self.present(alert, animated: true)
+                
             }
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
