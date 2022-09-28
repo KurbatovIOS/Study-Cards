@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJz-bx-rja">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJz-bx-rja">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -33,7 +34,7 @@
                 <navigationController id="awB-Ca-1EO" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Collections" image="square.grid.2x2.fill" catalog="system" id="mAs-8W-LvG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jRw-ya-RK0">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -53,7 +54,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="orj-3O-Z7P">
-                                <rect key="frame" x="20" y="88" width="374" height="725"/>
+                                <rect key="frame" x="20" y="92" width="374" height="721"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dAS-kC-FNf">
                                     <size key="itemSize" width="128" height="128"/>
@@ -70,7 +71,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-Vm-jIE">
-                                                    <rect key="frame" x="42" y="54" width="44.5" height="20.5"/>
+                                                    <rect key="frame" x="41.5" y="53.5" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -148,10 +149,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearningCards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -226,10 +227,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eba-xE-IXO">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionCell" id="ayp-fq-RxP" customClass="LearnCell" customModule="LearningCards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayp-fq-RxP" id="hxH-2q-aPG">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -351,8 +352,8 @@
                     <connections>
                         <outlet property="cardLabel" destination="OM5-jb-bCB" id="odF-41-KQJ"/>
                         <outlet property="cardView" destination="CU0-qu-UX7" id="vNG-5j-4QC"/>
+                        <outlet property="nextImageView" destination="lkq-tt-NLc" id="lVw-nD-r3C"/>
                         <outlet property="previousImageView" destination="Tc4-Xc-vUH" id="TGR-tb-tDP"/>
-                        <outlet property="rightImageView" destination="lkq-tt-NLc" id="g7K-HX-3Mh"/>
                         <outlet property="shuffleImageView" destination="SUo-Ih-f3c" id="T5U-nw-ruv"/>
                     </connections>
                 </viewController>
@@ -366,7 +367,7 @@
                 <navigationController id="1iN-Uw-o08" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Learn" image="graduationcap.fill" catalog="system" id="yNf-48-lOU"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xue-oi-e7C">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -379,13 +380,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrow.right.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
         <image name="graduationcap.fill" catalog="system" width="128" height="108"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
-        <image name="shuffle.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="shuffle.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

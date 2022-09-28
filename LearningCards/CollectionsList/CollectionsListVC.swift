@@ -136,7 +136,6 @@ class CollectionsListVC: UIViewController {
             
             present(actionSheet, animated: true)
         }
-        
     }
     
     // MARK: - TopBar buttons

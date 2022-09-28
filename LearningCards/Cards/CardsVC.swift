@@ -31,8 +31,6 @@ class CardsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //tableView.reloadData()
-        
         if ContentModel.collections[collectionId!].cards.count > 0 {
             
             messageLabel.alpha = 0
@@ -46,20 +44,24 @@ class CardsVC: UIViewController {
     //TODO: Make button remove all cards instead of collection itself
     @IBAction func removeButtonAction(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Delete \"\(ContentModel.collections[collectionId ?? 0].title)\"?", message: "Are you sure you want to delete this collection?", preferredStyle: .alert)
-        
-        // Remove action
-        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+        if self.collectionId != nil  && !ContentModel.collections[self.collectionId!].cards.isEmpty {
             
-            if self.collectionId != nil {
-                self.model.removeCollection(collectionId: self.collectionId!)
-                self.navigationController?.popViewController(animated: false)
-            }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(alert, animated: true)
+            let alert = UIAlertController(title: "Delete all cards?", message: "Are you sure you want to delete all cards?", preferredStyle: .alert)
+            
+            // Remove action
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                
+                if self.collectionId != nil {
+                    self.model.removeAllCards(collectionId: self.collectionId!)
+                    self.messageLabel.alpha = 1
+                    self.tableView.reloadData()
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            present(alert, animated: true)
+        }
     }
     
     
@@ -143,7 +145,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             
             if self.collectionId != nil {
 
-                let alert = UIAlertController(title: "", message: "Edit card", preferredStyle: .alert)
+                let alert = UIAlertController(title: "Edit card", message: nil, preferredStyle: .alert)
                 
                 
                 alert.addTextField { textField in

@@ -55,14 +55,12 @@ class ContentModel {
     func addCollection(title: String) {
         
         ContentModel.collections.append(Collection(id: UUID(), title: title))
-        
         save()
     }
     
     func removeCollection(collectionId: Int) {
         
         ContentModel.collections.remove(at: collectionId)
-        
         save()
     }
     
@@ -78,7 +76,13 @@ class ContentModel {
     func addCard(collectionId: Int, front: String, back: String) {
         
         ContentModel.collections[collectionId].cards.append(Card(id: UUID(), front: front, back: back))
-        
+        save()
+    }
+    
+    
+    func removeAllCards(collectionId: Int) {
+    
+        ContentModel.collections[collectionId].cards.removeAll()
         save()
     }
 }
