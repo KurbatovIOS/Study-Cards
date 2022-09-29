@@ -11,7 +11,6 @@ class CardCell: UITableViewCell {
 
     @IBOutlet weak var cardFrontLabel: UILabel!
     
-
     func setUpFrontLable(frontLabel: String) {
         
         cardFrontLabel.text = frontLabel

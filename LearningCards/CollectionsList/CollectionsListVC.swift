@@ -87,10 +87,6 @@ class CollectionsListVC: UIViewController {
                 alert.addAction(cancelAction)
 
                 self.present(alert, animated: true)
-                
-//                let alert = self.model.createDeleteAlert(alertTitle: "Delete \(ContentModel.collections[indexPath.row].title)?", alertMessage: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", index: indexPath.row)
-                
-               // self.present(alert, animated: true)
             }
             
             let renameAction = UIAlertAction(title: "Rename", style: .default) { _ in
@@ -100,7 +96,6 @@ class CollectionsListVC: UIViewController {
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[indexPath.row].title
-                    //textField.keyboardType = .default
                 }
                 
                 let doneAction = UIAlertAction(title: "Done", style: .default) { _ in

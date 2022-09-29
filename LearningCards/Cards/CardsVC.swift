@@ -157,7 +157,6 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId].back
-                    //textField.keyboardType = .default
                 }
                 
                 alert.addAction(UIAlertAction(title: "Cancel", style: .default))
