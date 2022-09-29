@@ -31,7 +31,6 @@ class CollectionsListVC: UIViewController {
         
         //TODO: Correct label
         messageLabel.text = "You have no collections yet"
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +100,7 @@ class CollectionsListVC: UIViewController {
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[indexPath.row].title
-                    textField.keyboardType = .default
+                    //textField.keyboardType = .default
                 }
                 
                 let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
@@ -148,10 +147,9 @@ class CollectionsListVC: UIViewController {
         // Add text field
         alert.addTextField { textField in
             textField.placeholder = ""
-            textField.keyboardType = .default
         }
         
-        // Set buttons for alert
+        // Set alert buttons 
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
             
             let collectionTitle = alert.textFields![0].text ?? ""

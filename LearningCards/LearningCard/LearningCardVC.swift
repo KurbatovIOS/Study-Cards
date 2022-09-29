@@ -10,68 +10,125 @@ import UIKit
 class LearningCardVC: UIViewController {
     
     @IBOutlet weak var previousImageView: UIImageView!
-    
     @IBOutlet weak var nextImageView: UIImageView!
-    
     @IBOutlet weak var shuffleImageView: UIImageView!
     
     @IBOutlet weak var cardView: UIView!
-    
     @IBOutlet weak var cardLabel: UILabel!
     
     
+    var isFront: Bool = true
     var collectionToDisplay: Collection?
     var currentCardIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpView()
+        addPressGestures()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func setUpView() {
+        
         navigationItem.title = collectionToDisplay?.title
         
-        previousImageView.tintColor = .gray
-        
+        // Customizing card
         cardView.layer.cornerRadius = 10.0
-        
+    
         // border
         cardView.layer.borderColor = UIColor.gray.cgColor
         cardView.layer.borderWidth = 1
         
+        cardLabel.text = collectionToDisplay?.cards[currentCardIndex].front
+        cardLabel.numberOfLines = 0
+        
+        currentCardIndex = 0
+        
+        previousImageView.tintColor = .gray
+
+        if collectionToDisplay!.cards.count < 2 {
+            nextImageView.tintColor = .gray
+            shuffleImageView.tintColor = .gray
+        }
+    }
+    
+    func addPressGestures() {
+
         previousImageView.isUserInteractionEnabled = true
         shuffleImageView.isUserInteractionEnabled = true
         nextImageView.isUserInteractionEnabled = true
         
-        
         let previousPressGesture = UITapGestureRecognizer(target: self, action: #selector(previousPress))
         let nextPressGesture = UITapGestureRecognizer(target: self, action: #selector(nextPress))
         let shufflePressGesture = UITapGestureRecognizer(target: self, action: #selector(shufflePress))
+        let cardPressGesture = UITapGestureRecognizer(target: self, action: #selector(flipCard))
         
         previousImageView.addGestureRecognizer(previousPressGesture)
         shuffleImageView.addGestureRecognizer(shufflePressGesture)
-        
+        nextImageView.addGestureRecognizer(nextPressGesture)
+        cardView.addGestureRecognizer(cardPressGesture)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func flipCard() {
         
-        cardLabel.text = collectionToDisplay?.cards[0].front
-        cardLabel.numberOfLines = 0
+        if isFront {
+            // Flip a card to the back side
+            cardLabel.text = collectionToDisplay!.cards[currentCardIndex].back
+            UIView.transition(with: cardView, duration: 0.7, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+        }
+        else {
+            //flip a card to the front side
+            cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            UIView.transition(with: cardView, duration: 0.7, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        }
+      
+        isFront.toggle()
     }
     
     @objc func previousPress() {
         
-        currentCardIndex += 1
-        
-       // if currentCardIndex < Coll
-        
+        if currentCardIndex - 1 >= 0 {
+            
+            currentCardIndex -= 1
+            cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            
+            if nextImageView.tintColor == .gray {
+                nextImageView.tintColor = .systemBlue
+            }
+            
+            if currentCardIndex == 0 {
+                previousImageView.tintColor = .gray
+            }
+        }
     }
     
     @objc func nextPress() {
         
-        
+        if currentCardIndex + 1 < collectionToDisplay!.cards.count {
+            
+            currentCardIndex += 1
+            cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            
+            if previousImageView.tintColor == .gray {
+                previousImageView.tintColor = .systemBlue
+            }
+            
+            if currentCardIndex == collectionToDisplay!.cards.count-1 {
+                nextImageView.tintColor = .gray
+            }
+        }
     }
     
     @objc func shufflePress() {
         
-        collectionToDisplay!.cards.shuffle()
-        cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+        if collectionToDisplay!.cards.count > 1 {
+            collectionToDisplay!.cards.shuffle()
+            isFront = true
+            cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+        }
     }
 }

@@ -78,13 +78,13 @@ class CardsVC: UIViewController {
         alert.addTextField { textField in
             
             textField.placeholder = "front"
-            textField.keyboardType = .default
+            //textField.keyboardType = .default
         }
         
         alert.addTextField { textField in
             
             textField.placeholder = "back"
-            textField.keyboardType = .default
+            //textField.keyboardType = .default
         }
         
         
@@ -151,13 +151,13 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId].front
-                    textField.keyboardType = .default
+                    //textField.keyboardType = .default
                 }
                 
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId].back
-                    textField.keyboardType = .default
+                    //textField.keyboardType = .default
                 }
                 
                 alert.addAction(UIAlertAction(title: "Cancel", style: .default))
