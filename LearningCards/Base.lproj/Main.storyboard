@@ -116,7 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Collections" id="8h0-9e-44b">
-                        <barButtonItem key="backBarButtonItem" title=" " id="pOM-7R-yem"/>
+                        <barButtonItem key="backBarButtonItem" title=" Back" id="pOM-7R-yem"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="trash" catalog="system" id="qI5-vB-rwI">
                                 <connections>
@@ -148,18 +148,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearningCards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
-                                                    <rect key="frame" x="20" y="11.5" width="334" height="20.5"/>
+                                                    <rect key="frame" x="20" y="11.5" width="374" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -274,7 +275,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Learn" id="hI5-0G-hQf">
-                        <barButtonItem key="backBarButtonItem" title=" " id="MxV-Yz-lB3"/>
+                        <barButtonItem key="backBarButtonItem" title=" Back" id="MxV-Yz-lB3"/>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="lTf-Va-5pa" id="VK1-D2-eAu"/>

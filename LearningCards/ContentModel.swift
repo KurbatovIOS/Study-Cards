@@ -85,4 +85,5 @@ class ContentModel {
         ContentModel.collections[collectionId].cards.removeAll()
         save()
     }
+    
 }

@@ -10,23 +10,32 @@ import UIKit
 class CardsVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var messageLabel: UILabel!
+    
+    let searchController = UISearchController()
     
     var model = ContentModel()
     
     var collectionId: Int?
+    
+    var filteredCards: [Card]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = ContentModel.collections[collectionId!].title
         
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.delegate = self
+        navigationItem.searchController = searchController
+        
         tableView.delegate = self
         tableView.dataSource = self
         
         tableView.showsVerticalScrollIndicator = false
         tableView.allowsSelection = false
+        
+        filteredCards = ContentModel.collections[collectionId!].cards
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +62,7 @@ class CardsVC: UIViewController {
                 
                 if self.collectionId != nil {
                     self.model.removeAllCards(collectionId: self.collectionId!)
+                    self.filteredCards.removeAll()
                     self.messageLabel.alpha = 1
                     self.tableView.reloadData()
                 }
@@ -64,7 +74,6 @@ class CardsVC: UIViewController {
         }
     }
     
-    
     @IBAction func addButtonAction(_ sender: Any) {
         
         guard collectionId != nil else {
@@ -72,21 +81,17 @@ class CardsVC: UIViewController {
         }
         
         // TODO: Change message
-        
         let alert = UIAlertController(title: "Creat a new card", message: "", preferredStyle: .alert)
         
         alert.addTextField { textField in
             
             textField.placeholder = "front"
-            //textField.keyboardType = .default
         }
         
         alert.addTextField { textField in
             
             textField.placeholder = "back"
-            //textField.keyboardType = .default
         }
-        
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { action in
             
@@ -100,6 +105,7 @@ class CardsVC: UIViewController {
             
             // Add the card to the collection
             self.model.addCard(collectionId: self.collectionId!, front: front!, back: back!)
+            self.filteredCards = ContentModel.collections[self.collectionId!].cards
                 
             // Hide message if there is a card
             if ContentModel.collections[self.collectionId!].cards.count > 0 {
@@ -115,20 +121,44 @@ class CardsVC: UIViewController {
     }
 }
 
-// MARK: - TableView
+//MARK: - SearchBar
+extension CardsVC: UISearchBarDelegate {
 
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+
+        filteredCards = []
+
+        if searchText == "" {
+            filteredCards = ContentModel.collections[collectionId!].cards
+        }
+        else {
+            for card in ContentModel.collections[collectionId!].cards {
+
+                if card.front.lowercased().contains(searchText.lowercased()) {
+
+                    filteredCards.append(card)
+                }
+            }
+        }
+
+        self.tableView.reloadData()
+    }
+}
+
+// MARK: - TableView
 extension CardsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return ContentModel.collections[collectionId ?? 0].cards.count
+        return filteredCards.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
         
-        let card = ContentModel.collections[collectionId!].cards[indexPath.row]
+        //let card = ContentModel.collections[collectionId!].cards[indexPath.row]
+        let card = filteredCards[indexPath.row]
         
         cell.setUpFrontLable(frontLabel: card.front)
         
@@ -139,42 +169,47 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
         
         let edit = UIContextualAction(style: .normal, title: "") { (action, view, success:(Bool) -> Void) in
             
+            let selectedRowIndex = indexPath.row
+            
             // TODO: move edit function into contentModel
+            let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
+                card.front == self.filteredCards[selectedRowIndex].front &&
+                card.back == self.filteredCards[selectedRowIndex].back
+            }
             
-            let cardId = indexPath.row
-            
-            if self.collectionId != nil {
+            if self.collectionId != nil && cardId != nil {
 
                 let alert = UIAlertController(title: "Edit card", message: nil, preferredStyle: .alert)
                 
-                
                 alert.addTextField { textField in
                     
-                    textField.text = ContentModel.collections[self.collectionId!].cards[cardId].front
-                    //textField.keyboardType = .default
+                    textField.text = ContentModel.collections[self.collectionId!].cards[cardId!].front
                 }
                 
                 alert.addTextField { textField in
                     
-                    textField.text = ContentModel.collections[self.collectionId!].cards[cardId].back
+                    textField.text = ContentModel.collections[self.collectionId!].cards[cardId!].back
                 }
                 
-                alert.addAction(UIAlertAction(title: "Cancel", style: .default))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 
                 alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
                     
-                    guard alert.textFields?[0].text != nil && alert.textFields?[1].text != nil else {
+                    let front = alert.textFields?[0].text
+                    let back = alert.textFields?[1].text
+                    
+                    guard front != nil && front?.trimmingCharacters(in: .whitespaces) != "" && back != nil && back?.trimmingCharacters(in: .whitespaces) != "" else {
                         return
                     }
                     
-                    ContentModel.collections[self.collectionId!].cards[cardId].front = alert.textFields![0].text!
-                    ContentModel.collections[self.collectionId!].cards[cardId].back = alert.textFields![1].text!
+                    ContentModel.collections[self.collectionId!].cards[cardId!].front = front!
+                    ContentModel.collections[self.collectionId!].cards[cardId!].back = back!
+                    
+                    self.filteredCards[selectedRowIndex] = ContentModel.collections[self.collectionId!].cards[cardId!]
                     
                     self.model.save()
                     self.tableView.reloadData()
-                    
                 }))
-                
                 self.present(alert, animated: true)
             }
             success(true)
