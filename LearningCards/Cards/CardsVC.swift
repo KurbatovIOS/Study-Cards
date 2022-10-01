@@ -171,7 +171,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             
             let selectedRowIndex = indexPath.row
             
-            // TODO: move edit function into contentModel
+            // TODO: move edit function into contentModel (problem: cant reload tableview data from model function)
             let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
                 card.front == self.filteredCards[selectedRowIndex].front &&
                 card.back == self.filteredCards[selectedRowIndex].back
@@ -207,6 +207,11 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                     
                     self.filteredCards[selectedRowIndex] = ContentModel.collections[self.collectionId!].cards[cardId!]
                     
+                    if self.searchController.searchBar.text != nil && !self.filteredCards[selectedRowIndex].front.lowercased().contains(self.searchController.searchBar.text!.lowercased()) {
+                        
+                        self.filteredCards.remove(at: selectedRowIndex)
+                    }
+                    
                     self.model.save()
                     self.tableView.reloadData()
                 }))
@@ -221,11 +226,17 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
         // TODO: move remove function into contentModel
         let remove = UIContextualAction(style: .destructive, title: "") { (action, view, success:(Bool) -> Void) in
             
-            let cardId = indexPath.row
+            let selectedRowIndex = indexPath.row
             
-            if self.collectionId != nil {
+            let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
+                card.front == self.filteredCards[selectedRowIndex].front &&
+                card.back == self.filteredCards[selectedRowIndex].back
+            }
+            
+            if self.collectionId != nil && cardId != nil {
 
-                ContentModel.collections[self.collectionId!].cards.remove(at: cardId)
+                ContentModel.collections[self.collectionId!].cards.remove(at: cardId!)
+                self.filteredCards.remove(at: selectedRowIndex)
                 
                 self.model.save()
                 self.tableView.reloadData()
