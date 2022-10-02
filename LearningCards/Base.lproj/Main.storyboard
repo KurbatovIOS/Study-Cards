@@ -116,7 +116,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Collections" id="8h0-9e-44b">
-                        <barButtonItem key="backBarButtonItem" title=" Back" id="pOM-7R-yem"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="pOM-7R-yem"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="trash" catalog="system" id="qI5-vB-rwI">
                                 <connections>
@@ -275,7 +275,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Learn" id="hI5-0G-hQf">
-                        <barButtonItem key="backBarButtonItem" title=" Back" id="MxV-Yz-lB3"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="MxV-Yz-lB3"/>
                     </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="lTf-Va-5pa" id="VK1-D2-eAu"/>

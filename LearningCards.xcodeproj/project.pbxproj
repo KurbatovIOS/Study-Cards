@@ -12,6 +12,7 @@
 		B828B74E28A0318500E5B14C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828B74D28A0318500E5B14C /* CollectionCell.swift */; };
 		B829A09E28B27E1100F34A70 /* LearnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829A09D28B27E1100F34A70 /* LearnVC.swift */; };
 		B829A0A128B27E3700F34A70 /* LearnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829A0A028B27E3700F34A70 /* LearnCell.swift */; };
+		B842E0C128E9F5990007D316 /* next.wav in Resources */ = {isa = PBXBuildFile; fileRef = B842E0C028E9F5990007D316 /* next.wav */; };
 		B84CDAE928AD43D000072232 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CDAE828AD43D000072232 /* CardCell.swift */; };
 		B8DBA250289BF35B00DA93F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */; };
 		B8DBA252289BF35B00DA93F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */; };
@@ -31,6 +32,7 @@
 		B828B74D28A0318500E5B14C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		B829A09D28B27E1100F34A70 /* LearnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVC.swift; sourceTree = "<group>"; };
 		B829A0A028B27E3700F34A70 /* LearnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCell.swift; sourceTree = "<group>"; };
+		B842E0C028E9F5990007D316 /* next.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = next.wav; sourceTree = "<group>"; };
 		B84CDAE828AD43D000072232 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B8DBA24C289BF35B00DA93F0 /* LearningCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -60,44 +62,48 @@
 		B8239CE228E9B26C00B63850 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				B842E0C028E9F5990007D316 /* next.wav */,
 				B8239CE628E9B62500B63850 /* cardFlip.wav */,
 			);
 			path = Sound;
 			sourceTree = "<group>";
 		};
-		B826B1CD28B79B74009EEC3F /* LearningCard */ = {
+		B8239CE828E9B77B00B63850 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B8DBA253289BF35B00DA93F0 /* BaseVC.swift */,
+				B8FA89C928ABFCB4006DD571 /* CollectionsListVC.swift */,
+				B8FA89CB28ABFD4F006DD571 /* CardsVC.swift */,
+				B829A09D28B27E1100F34A70 /* LearnVC.swift */,
 				B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */,
 			);
-			path = LearningCard;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		B828B74F28A0318E00E5B14C /* CollectionsList */ = {
+		B8239CE928E9B78F00B63850 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B8FA89C928ABFCB4006DD571 /* CollectionsListVC.swift */,
+				B829A0A028B27E3700F34A70 /* LearnCell.swift */,
+				B84CDAE828AD43D000072232 /* CardCell.swift */,
 				B828B74D28A0318500E5B14C /* CollectionCell.swift */,
 			);
-			path = CollectionsList;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		B829A09F28B27E1700F34A70 /* Learn */ = {
+		B8239CEA28E9B79700B63850 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B829A09D28B27E1100F34A70 /* LearnVC.swift */,
-				B829A0A028B27E3700F34A70 /* LearnCell.swift */,
+				B8DBA263289BF41300DA93F0 /* Collection.swift */,
 			);
-			path = Learn;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		B83E6A2528ABFAC0006BBCD9 /* Cards */ = {
+		B8239CEB28E9B79F00B63850 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B8FA89CB28ABFD4F006DD571 /* CardsVC.swift */,
-				B84CDAE828AD43D000072232 /* CardCell.swift */,
+				B8DBA265289BF46E00DA93F0 /* ContentModel.swift */,
 			);
-			path = Cards;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		B8DBA243289BF35B00DA93F0 = {
@@ -121,14 +127,11 @@
 			children = (
 				B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */,
 				B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */,
-				B8DBA253289BF35B00DA93F0 /* BaseVC.swift */,
-				B828B74F28A0318E00E5B14C /* CollectionsList */,
-				B83E6A2528ABFAC0006BBCD9 /* Cards */,
-				B829A09F28B27E1700F34A70 /* Learn */,
-				B826B1CD28B79B74009EEC3F /* LearningCard */,
+				B8239CE828E9B77B00B63850 /* Controllers */,
+				B8239CE928E9B78F00B63850 /* Views */,
+				B8239CEB28E9B79F00B63850 /* ViewModels */,
+				B8239CEA28E9B79700B63850 /* Models */,
 				B8239CE228E9B26C00B63850 /* Sound */,
-				B8DBA265289BF46E00DA93F0 /* ContentModel.swift */,
-				B8DBA263289BF41300DA93F0 /* Collection.swift */,
 				B8DBA255289BF35B00DA93F0 /* Main.storyboard */,
 				B8DBA258289BF35E00DA93F0 /* Assets.xcassets */,
 				B8DBA25A289BF35E00DA93F0 /* LaunchScreen.storyboard */,
@@ -195,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B842E0C128E9F5990007D316 /* next.wav in Resources */,
 				B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */,
 				B8DBA25C289BF35E00DA93F0 /* LaunchScreen.storyboard in Resources */,
 				B8DBA259289BF35E00DA93F0 /* Assets.xcassets in Resources */,

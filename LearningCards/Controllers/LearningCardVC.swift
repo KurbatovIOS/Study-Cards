@@ -89,7 +89,7 @@ class LearningCardVC: UIViewController {
             UIView.transition(with: cardView, duration: 0.7, options: .transitionFlipFromRight, animations: nil, completion: nil)
         }
         
-        let path = Bundle.main.path(forResource: "cardFslip", ofType: "wav")
+        let path = Bundle.main.path(forResource: "cardFlip", ofType: "wav")
         let url = URL(fileURLWithPath: path!)
         
         do {
@@ -107,6 +107,17 @@ class LearningCardVC: UIViewController {
         
         if currentCardIndex - 1 >= 0 {
             
+            let path = Bundle.main.path(forResource: "next", ofType: "wav")
+            let url = URL(fileURLWithPath: path!)
+            
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+            }
+            catch {
+                print("Player error")
+            }
+            
             currentCardIndex -= 1
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
             
@@ -123,6 +134,17 @@ class LearningCardVC: UIViewController {
     @objc func nextPress() {
         
         if currentCardIndex + 1 < collectionToDisplay!.cards.count {
+            
+            let path = Bundle.main.path(forResource: "next", ofType: "wav")
+            let url = URL(fileURLWithPath: path!)
+            
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+            }
+            catch {
+                print("Player error")
+            }
             
             currentCardIndex += 1
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
