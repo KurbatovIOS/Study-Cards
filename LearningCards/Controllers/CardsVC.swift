@@ -27,7 +27,7 @@ class CardsVC: UIViewController {
         
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -206,7 +206,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                     
                     self.filteredCards[selectedRowIndex] = ContentModel.collections[self.collectionId!].cards[cardId!]
                     
-                    if self.searchController.searchBar.text != nil && !self.filteredCards[selectedRowIndex].front.lowercased().contains(self.searchController.searchBar.text!.lowercased()) {
+                    if self.searchController.searchBar.text != nil && self.searchController.searchBar.text != "" && !self.filteredCards[selectedRowIndex].front.lowercased().contains(self.searchController.searchBar.text!.lowercased()) {
                         
                         self.filteredCards.remove(at: selectedRowIndex)
                     }

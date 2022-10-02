@@ -17,7 +17,6 @@ class LearningCardVC: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardLabel: UILabel!
     
-    
     var isFront: Bool = true
     var collectionToDisplay: Collection?
     var currentCardIndex: Int = 0
