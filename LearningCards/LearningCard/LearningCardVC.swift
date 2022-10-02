@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class LearningCardVC: UIViewController {
     
@@ -20,6 +21,8 @@ class LearningCardVC: UIViewController {
     var isFront: Bool = true
     var collectionToDisplay: Collection?
     var currentCardIndex: Int = 0
+    
+    var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +87,17 @@ class LearningCardVC: UIViewController {
             //flip a card to the front side
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
             UIView.transition(with: cardView, duration: 0.7, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        }
+        
+        let path = Bundle.main.path(forResource: "cardFslip", ofType: "wav")
+        let url = URL(fileURLWithPath: path!)
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.play()
+        }
+        catch {
+            print("Player error")
         }
       
         isFront.toggle()

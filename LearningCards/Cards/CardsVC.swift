@@ -25,7 +25,7 @@ class CardsVC: UIViewController {
         
         navigationItem.title = ContentModel.collections[collectionId!].title
         
-        searchController.hidesNavigationBarDuringPresentation = false
+        //searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         navigationItem.searchController = searchController
         

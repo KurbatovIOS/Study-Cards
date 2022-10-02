@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8239CE628E9B62500B63850 /* cardFlip.wav */; };
 		B826B1CC28B79B69009EEC3F /* LearningCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */; };
 		B828B74E28A0318500E5B14C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828B74D28A0318500E5B14C /* CollectionCell.swift */; };
 		B829A09E28B27E1100F34A70 /* LearnVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829A09D28B27E1100F34A70 /* LearnVC.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B8239CE628E9B62500B63850 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
 		B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCardVC.swift; sourceTree = "<group>"; };
 		B828B74D28A0318500E5B14C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		B829A09D28B27E1100F34A70 /* LearnVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnVC.swift; sourceTree = "<group>"; };
@@ -55,6 +57,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8239CE228E9B26C00B63850 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				B8239CE628E9B62500B63850 /* cardFlip.wav */,
+			);
+			path = Sound;
+			sourceTree = "<group>";
+		};
 		B826B1CD28B79B74009EEC3F /* LearningCard */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +126,7 @@
 				B83E6A2528ABFAC0006BBCD9 /* Cards */,
 				B829A09F28B27E1700F34A70 /* Learn */,
 				B826B1CD28B79B74009EEC3F /* LearningCard */,
+				B8239CE228E9B26C00B63850 /* Sound */,
 				B8DBA265289BF46E00DA93F0 /* ContentModel.swift */,
 				B8DBA263289BF41300DA93F0 /* Collection.swift */,
 				B8DBA255289BF35B00DA93F0 /* Main.storyboard */,
@@ -184,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */,
 				B8DBA25C289BF35E00DA93F0 /* LaunchScreen.storyboard in Resources */,
 				B8DBA259289BF35E00DA93F0 /* Assets.xcassets in Resources */,
 				B8DBA257289BF35B00DA93F0 /* Main.storyboard in Resources */,
