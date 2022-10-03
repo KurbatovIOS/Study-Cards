@@ -148,19 +148,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
-                                <rect key="frame" x="0.0" y="92" width="414" height="721"/>
-                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
+                                <rect key="frame" x="0.0" y="112" width="414" height="701"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearningCards" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
-                                                    <rect key="frame" x="20" y="11.5" width="374" height="20.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
+                                                    <rect key="frame" x="20" y="11.5" width="334" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -186,14 +185,14 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="h9w-CA-lSF"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="G2U-xx-VP4" firstAttribute="centerX" secondItem="48o-oV-kKO" secondAttribute="centerX" id="1qj-o2-PoC"/>
                             <constraint firstItem="VTJ-5J-307" firstAttribute="leading" secondItem="h9w-CA-lSF" secondAttribute="leading" id="4dN-QC-yl7"/>
                             <constraint firstItem="h9w-CA-lSF" firstAttribute="bottom" secondItem="VTJ-5J-307" secondAttribute="bottom" id="4sq-LC-L4D"/>
                             <constraint firstItem="G2U-xx-VP4" firstAttribute="centerY" secondItem="48o-oV-kKO" secondAttribute="centerY" id="4uV-JM-rYx"/>
                             <constraint firstItem="h9w-CA-lSF" firstAttribute="trailing" secondItem="VTJ-5J-307" secondAttribute="trailing" id="W6v-QW-Sm5"/>
-                            <constraint firstItem="VTJ-5J-307" firstAttribute="top" secondItem="h9w-CA-lSF" secondAttribute="top" id="lji-rk-fdc"/>
+                            <constraint firstItem="VTJ-5J-307" firstAttribute="top" secondItem="h9w-CA-lSF" secondAttribute="top" constant="20" id="lji-rk-fdc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cards" id="roV-A1-IAd">
@@ -264,7 +263,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oft-OV-WT9"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="oft-OV-WT9" firstAttribute="bottom" secondItem="eba-xE-IXO" secondAttribute="bottom" id="2wo-ez-pl3"/>
                             <constraint firstItem="oft-OV-WT9" firstAttribute="trailing" secondItem="eba-xE-IXO" secondAttribute="trailing" id="CVE-FN-Ors"/>
