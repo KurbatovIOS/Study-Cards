@@ -48,7 +48,7 @@ class ContentModel {
         alert.addAction(cancelAction)
         
         return alert
-    }    
+    }
     
     // MARK: - Collection Section
     func addCollection(title: String) {

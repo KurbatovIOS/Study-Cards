@@ -26,7 +26,6 @@ class CardsVC: UIViewController {
         navigationItem.title = ContentModel.collections[collectionId!].title
         
         searchController.searchBar.delegate = self
-        //navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.searchController = searchController
 
         tableView.delegate = self
