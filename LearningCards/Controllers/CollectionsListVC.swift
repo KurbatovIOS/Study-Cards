@@ -104,12 +104,25 @@ class CollectionsListVC: UIViewController {
                         return
                     }
                     
-                    if newTitle.trimmingCharacters(in: .whitespaces) != "" {
+                    if ContentModel.collections.contains(where: { collection in
+                        collection.title == newTitle
+                    }) {
                         
-                        ContentModel.collections[indexPath.row].title = newTitle
+                        //TODO: Edit message
+                        let warningAlert = UIAlertController(title: "This collection already exists", message: nil, preferredStyle: .alert)
                         
-                        self.model.save()
-                        self.collectionView.reloadData()
+                        warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        
+                        self.present(warningAlert, animated: true)
+                    }
+                    else {
+                        if newTitle.trimmingCharacters(in: .whitespaces) != "" {
+                            
+                            ContentModel.collections[indexPath.row].title = newTitle
+                            
+                            self.model.save()
+                            self.collectionView.reloadData()
+                        }
                     }
                 }
                 
@@ -149,14 +162,27 @@ class CollectionsListVC: UIViewController {
             
             let collectionTitle = alert.textFields![0].text ?? ""
             
-            self.model.addCollection(title: collectionTitle.trimmingCharacters(in: .whitespaces) == "" ? "Collection \(ContentModel.collections.count + 1)" : collectionTitle)
-            
-            if ContentModel.collections.count > 0 {
+            if ContentModel.collections.contains(where: { collection in
+                collection.title == collectionTitle
+            }) {
                 
-                self.messageLabel.alpha = 0
+                //TODO: Edit message
+                let warningAlert = UIAlertController(title: "This collection already exists", message: nil, preferredStyle: .alert)
+                
+                warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                
+                self.present(warningAlert, animated: true)
             }
-            
-            self.collectionView.reloadData()
+            else {
+                self.model.addCollection(title: collectionTitle.trimmingCharacters(in: .whitespaces) == "" ? "Collection \(ContentModel.collections.count + 1)" : collectionTitle)
+                
+                if ContentModel.collections.count > 0 {
+                    
+                    self.messageLabel.alpha = 0
+                }
+                
+                self.collectionView.reloadData()
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

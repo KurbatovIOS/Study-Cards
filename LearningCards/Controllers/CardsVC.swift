@@ -98,20 +98,37 @@ class CardsVC: UIViewController {
             let front = alert.textFields?[0].text
             let back = alert.textFields?[1].text
             
-            guard front != nil && front?.trimmingCharacters(in: .whitespaces) != "" && back != nil && back?.trimmingCharacters(in: .whitespaces) != "" else {
+            guard front != nil && back != nil else {
                 return
             }
             
-            // Add the card to the collection
-            self.model.addCard(collectionId: self.collectionId!, front: front!, back: back!)
-            self.filteredCards = ContentModel.collections[self.collectionId!].cards
+            // If a cards with the same front and back already exists do nothing
+            if ContentModel.collections[self.collectionId!].cards.contains(where: { card in
+                card.front == front && card.back == back
+            }) || front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == "" {
                 
-            // Hide message if there is a card
-            if ContentModel.collections[self.collectionId!].cards.count > 0 {
-                self.messageLabel.alpha = 0
+                let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
+                
+                //TODO: Edit message
+                let warningAlert = UIAlertController(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, preferredStyle: .alert)
+                
+                warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                
+                self.present(warningAlert, animated: true)
+                
             }
-                
-            self.tableView.reloadData()
+            else {
+                // else add a new card with given fron and back to the collection
+                self.model.addCard(collectionId: self.collectionId!, front: front!, back: back!)
+                self.filteredCards = ContentModel.collections[self.collectionId!].cards
+                    
+                // Hide message if there is a card
+                if ContentModel.collections[self.collectionId!].cards.count > 0 {
+                    self.messageLabel.alpha = 0
+                }
+                    
+                self.tableView.reloadData()
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
