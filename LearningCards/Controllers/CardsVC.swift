@@ -54,8 +54,8 @@ class CardsVC: UIViewController {
         
         if self.collectionId != nil  && !ContentModel.collections[self.collectionId!].cards.isEmpty {
             
-            let alert = UIAlertController(title: "Delete all cards?", message: "Are you sure you want to delete all cards?", preferredStyle: .alert)
-            
+            let alert = self.model.createAlert(title: "Delete all cards?", message: "Are you sure you want to delete all cards?", style: .alert)
+                        
             // Remove action
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                 
@@ -66,8 +66,6 @@ class CardsVC: UIViewController {
                     self.tableView.reloadData()
                 }
             }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
             present(alert, animated: true)
         }
@@ -80,7 +78,7 @@ class CardsVC: UIViewController {
         }
         
         // TODO: Change message
-        let alert = UIAlertController(title: "Creat a new card", message: "", preferredStyle: .alert)
+        let alert = self.model.createAlert(title: "Creat a new card", message: nil, style: .alert)
         
         alert.addTextField { textField in
             
@@ -112,10 +110,8 @@ class CardsVC: UIViewController {
                 let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
                 
                 //TODO: Edit message
-                let warningAlert = UIAlertController(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, preferredStyle: .alert)
-                
-                warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                
+                let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
+                                
                 self.present(warningAlert, animated: true)
             }
             else {
@@ -131,9 +127,7 @@ class CardsVC: UIViewController {
                 self.tableView.reloadData()
             }
         }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                
+    
         present(alert, animated: true)
     }
 }
@@ -202,7 +196,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             
             if self.collectionId != nil && cardId != nil {
 
-                let alert = UIAlertController(title: "Edit card", message: nil, preferredStyle: .alert)
+                let alert = self.model.createAlert(title: "Edit card", message: nil, style: .alert)
                 
                 alert.addTextField { textField in
                     
@@ -215,8 +209,6 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId!].back
                     textField.autocapitalizationType = .sentences
                 }
-                
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
                 
                 alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
                     
@@ -235,9 +227,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                         let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
                         
                         //TODO: Edit message
-                        let warningAlert = UIAlertController(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, preferredStyle: .alert)
-                        
-                        warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
                         
                         self.present(warningAlert, animated: true)
                     }
@@ -262,7 +252,6 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
         }
         
         edit.image = UIImage(systemName: "pencil")
-        
         
         // TODO: move remove function into contentModel
         let remove = UIContextualAction(style: .destructive, title: "") { (action, view, success:(Bool) -> Void) in

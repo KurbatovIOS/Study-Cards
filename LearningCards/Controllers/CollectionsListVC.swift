@@ -85,9 +85,7 @@ class CollectionsListVC: UIViewController {
 
                 self.present(deleteAlert, animated: true)
             }
-            
-            //MARK: - Start
-            
+                        
             let renameAction = UIAlertAction(title: "Rename", style: .default) { _ in
                 
                 let removeAlert = self.model.createAlert(title: "Rename \(ContentModel.collections[indexPath.row].title)", message: nil, style: .alert)
@@ -140,7 +138,8 @@ class CollectionsListVC: UIViewController {
     @IBAction func addCollectionButton(_ sender: Any) {
         
         // TODO: Correct message
-        let alert = UIAlertController(title: "Create collection", message: "Enter collection title", preferredStyle: .alert)
+        
+        let alert = self.model.createAlert(title: "Create collection", message: "Enter collection title", style: .alert)
         
         // Add text field
         alert.addTextField { textField in
@@ -158,9 +157,7 @@ class CollectionsListVC: UIViewController {
             }) {
                 
                 //TODO: Edit message
-                let warningAlert = UIAlertController(title: "This collection already exists", message: nil, preferredStyle: .alert)
-                
-                warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                let warningAlert = self.model.createAlert(title: "This collection already exists", message: nil, style: .alert, isWarning: true)
                 
                 self.present(warningAlert, animated: true)
             }
@@ -176,8 +173,6 @@ class CollectionsListVC: UIViewController {
             }
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
         present(alert, animated: true)
     }
     
@@ -185,8 +180,8 @@ class CollectionsListVC: UIViewController {
         
         if !ContentModel.collections.isEmpty{
             
-            let alert = UIAlertController(title: "Delete all collections?", message: "Are you sure you want to delete all collections?", preferredStyle: .alert)
-            
+            let alert = self.model.createAlert(title: "Delete all collections?", message: "Are you sure you want to delete all collections?", style: .alert)
+                        
             // Remove action
             alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                 
@@ -194,8 +189,6 @@ class CollectionsListVC: UIViewController {
                 self.collectionView.reloadData()
                 self.messageLabel.alpha = 1
             }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
             
             present(alert, animated: true)
         }
