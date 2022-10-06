@@ -85,11 +85,13 @@ class CardsVC: UIViewController {
         alert.addTextField { textField in
             
             textField.placeholder = "front"
+            textField.autocapitalizationType = .sentences
         }
         
         alert.addTextField { textField in
             
             textField.placeholder = "back"
+            textField.autocapitalizationType = .sentences
         }
         
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { action in
@@ -205,11 +207,13 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId!].front
+                    textField.autocapitalizationType = .sentences
                 }
                 
                 alert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[self.collectionId!].cards[cardId!].back
+                    textField.autocapitalizationType = .sentences
                 }
                 
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

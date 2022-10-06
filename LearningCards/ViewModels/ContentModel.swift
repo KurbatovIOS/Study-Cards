@@ -33,19 +33,19 @@ class ContentModel {
         }
     }
     
-    func createDeleteAlert(alertTitle: String, alertMessage: String, index: Int) -> UIAlertController {
+    
+    func createAlert(title: String?, message: String?, style: UIAlertController.Style, isWarning: Bool = false) -> UIAlertController {
         
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-            
-            self.removeCollection(collectionId: index)
+        let alert = UIAlertController(title: title, message: message, preferredStyle: style)
+    
+        if isWarning {
+            let okAction = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(okAction)
         }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(deleteAction)
-        alert.addAction(cancelAction)
+        else {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+            alert.addAction(cancelAction)
+        }
         
         return alert
     }

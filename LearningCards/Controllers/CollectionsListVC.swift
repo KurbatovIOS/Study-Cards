@@ -45,7 +45,6 @@ class CollectionsListVC: UIViewController {
             messageLabel.alpha = 1
         }
     }
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -63,13 +62,14 @@ class CollectionsListVC: UIViewController {
         if let indexPath = self.collectionView.indexPathForItem(at: point) {
                         
             // Main alert
-            let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                        
+            let actionSheet = self.model.createAlert(title: nil, message: nil, style: .actionSheet)
+            
             // Delete action
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-                
-                let alert = UIAlertController(title: "Delete \(ContentModel.collections[indexPath.row].title)?", message: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", preferredStyle: .alert)
-
+                             
+                // Delete collection alert
+                let deleteAlert = self.model.createAlert(title: "Delete \(ContentModel.collections[indexPath.row].title)?", message: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", style: .alert)
+        
                 let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
 
                     self.model.removeCollection(collectionId: indexPath.row)
@@ -80,27 +80,27 @@ class CollectionsListVC: UIViewController {
                         self.messageLabel.alpha = 1
                     }
                 }
+                
+                deleteAlert.addAction(deleteAction)
 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-                alert.addAction(deleteAction)
-                alert.addAction(cancelAction)
-
-                self.present(alert, animated: true)
+                self.present(deleteAlert, animated: true)
             }
+            
+            //MARK: - Start
             
             let renameAction = UIAlertAction(title: "Rename", style: .default) { _ in
                 
-                let alert = UIAlertController(title: "Rename \(ContentModel.collections[indexPath.row].title)", message: nil, preferredStyle: .alert)
-                
-                alert.addTextField { textField in
+                let removeAlert = self.model.createAlert(title: "Rename \(ContentModel.collections[indexPath.row].title)", message: nil, style: .alert)
+                                
+                removeAlert.addTextField { textField in
                     
                     textField.text = ContentModel.collections[indexPath.row].title
+                    textField.autocapitalizationType = .sentences
                 }
                 
                 let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
                     
-                    guard let newTitle = alert.textFields?[0].text else {
+                    guard let newTitle = removeAlert.textFields?[0].text else {
                         return
                     }
                     
@@ -109,9 +109,7 @@ class CollectionsListVC: UIViewController {
                     }) {
                         
                         //TODO: Edit message
-                        let warningAlert = UIAlertController(title: "This collection already exists", message: nil, preferredStyle: .alert)
-                        
-                        warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        let warningAlert = self.model.createAlert(title: "This collection already exists", message: nil, style: .alert, isWarning: true)
                         
                         self.present(warningAlert, animated: true)
                     }
@@ -125,22 +123,14 @@ class CollectionsListVC: UIViewController {
                         }
                     }
                 }
+                removeAlert.addAction(doneAction)
                 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-                
-                alert.addAction(doneAction)
-                alert.addAction(cancelAction)
-                
-                self.present(alert, animated: true)
-                
+                self.present(removeAlert, animated: true)
             }
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             
             actionSheet.addAction(renameAction)
             actionSheet.addAction(deleteAction)
-            actionSheet.addAction(cancelAction)
-            
+    
             present(actionSheet, animated: true)
         }
     }
@@ -155,6 +145,7 @@ class CollectionsListVC: UIViewController {
         // Add text field
         alert.addTextField { textField in
             textField.placeholder = ""
+            textField.autocapitalizationType = .sentences
         }
         
         // Set alert buttons 
