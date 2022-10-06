@@ -105,7 +105,7 @@ class CollectionsListVC: UIViewController {
                     }
                     
                     if ContentModel.collections.contains(where: { collection in
-                        collection.title == newTitle
+                        collection.title.lowercased() == newTitle.lowercased()
                     }) {
                         
                         //TODO: Edit message
@@ -163,7 +163,7 @@ class CollectionsListVC: UIViewController {
             let collectionTitle = alert.textFields![0].text ?? ""
             
             if ContentModel.collections.contains(where: { collection in
-                collection.title == collectionTitle
+                collection.title.lowercased() == collectionTitle.lowercased()
             }) {
                 
                 //TODO: Edit message
@@ -216,13 +216,11 @@ class CollectionsListVC: UIViewController {
 
 extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    
     // Number of cells
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         return ContentModel.collections.count
     }
-    
     
     // Cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -240,7 +238,6 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
         
         return 20
     }
-    
     
     // Cell configuration
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
