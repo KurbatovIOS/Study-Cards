@@ -158,6 +158,12 @@ extension CardsVC: UISearchBarDelegate {
 
         self.tableView.reloadData()
     }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+        filteredCards = ContentModel.collections[collectionId!].cards
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - TableView
