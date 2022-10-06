@@ -102,9 +102,9 @@ class CardsVC: UIViewController {
                 return
             }
             
-            // If a cards with the same front and back already exists do nothing
+            // If a cards with the same front and back already exists or if front or back is blank do nothing
             if ContentModel.collections[self.collectionId!].cards.contains(where: { card in
-                card.front == front && card.back == back
+                card.front.lowercased() == front?.lowercased() && card.back.lowercased() == back?.lowercased()
             }) || front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == "" {
                 
                 let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
@@ -115,7 +115,6 @@ class CardsVC: UIViewController {
                 warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
                 
                 self.present(warningAlert, animated: true)
-                
             }
             else {
                 // else add a new card with given fron and back to the collection
@@ -214,22 +213,38 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                     let front = alert.textFields?[0].text
                     let back = alert.textFields?[1].text
                     
-                    guard front != nil && front?.trimmingCharacters(in: .whitespaces) != "" && back != nil && back?.trimmingCharacters(in: .whitespaces) != "" else {
+                    guard front != nil && back != nil else {
                         return
                     }
                     
-                    ContentModel.collections[self.collectionId!].cards[cardId!].front = front!
-                    ContentModel.collections[self.collectionId!].cards[cardId!].back = back!
-                    
-                    self.filteredCards[selectedRowIndex] = ContentModel.collections[self.collectionId!].cards[cardId!]
-                    
-                    if self.searchController.searchBar.text != nil && self.searchController.searchBar.text != "" && !self.filteredCards[selectedRowIndex].front.lowercased().contains(self.searchController.searchBar.text!.lowercased()) {
+                    // If a cards with the same front and back already exists or if front or back is blank do nothing
+                    if ContentModel.collections[self.collectionId!].cards.contains(where: { card in
+                        card.front.lowercased() == front?.lowercased() && card.back.lowercased() == back?.lowercased()
+                    }) || front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == "" {
                         
-                        self.filteredCards.remove(at: selectedRowIndex)
+                        let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
+                        
+                        //TODO: Edit message
+                        let warningAlert = UIAlertController(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, preferredStyle: .alert)
+                        
+                        warningAlert.addAction(UIAlertAction(title: "OK", style: .cancel))
+                        
+                        self.present(warningAlert, animated: true)
                     }
-                    
-                    self.model.save()
-                    self.tableView.reloadData()
+                    else {
+                        ContentModel.collections[self.collectionId!].cards[cardId!].front = front!
+                        ContentModel.collections[self.collectionId!].cards[cardId!].back = back!
+                        
+                        self.filteredCards[selectedRowIndex] = ContentModel.collections[self.collectionId!].cards[cardId!]
+                        
+                        if self.searchController.searchBar.text != nil && self.searchController.searchBar.text != "" && !self.filteredCards[selectedRowIndex].front.lowercased().contains(self.searchController.searchBar.text!.lowercased()) {
+                            
+                            self.filteredCards.remove(at: selectedRowIndex)
+                        }
+                        
+                        self.model.save()
+                        self.tableView.reloadData()
+                    }
                 }))
                 self.present(alert, animated: true)
             }
