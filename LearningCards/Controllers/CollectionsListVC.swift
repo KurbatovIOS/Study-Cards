@@ -31,21 +31,11 @@ class CollectionsListVC: UIViewController {
         
         //TODO: Correct label
         messageLabel.text = "You have no collections yet"
+        
+        messageLabel.alpha = ContentModel.collections.count > 0 ? 0 : 1
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        collectionView.reloadData()
-        
-        if ContentModel.collections.count > 0 {
-            
-            messageLabel.alpha = 0
-        }
-        else {
-            messageLabel.alpha = 1
-        }
-    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         let cardsVC = segue.destination as! CardsVC
@@ -66,7 +56,7 @@ class CollectionsListVC: UIViewController {
             
             // Delete action
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-                             
+                        
                 // Delete collection alert
                 let deleteAlert = self.model.createAlert(title: "Delete \(ContentModel.collections[indexPath.row].title)?", message: "Are you sure you want to delete \(ContentModel.collections[indexPath.row].title)?", style: .alert)
         

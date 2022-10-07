@@ -173,6 +173,13 @@ class LearningCardVC: UIViewController {
         if collectionToDisplay!.cards.count > 1 {
             collectionToDisplay!.cards.shuffle()
             isFront = true
+            self.cardView.alpha = 0
+            
+            UIView.animate(withDuration: 0.5) {
+               
+                self.cardView.alpha = 1
+            }
+            
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
         }
     }
