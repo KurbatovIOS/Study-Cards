@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -150,29 +151,45 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="VTJ-5J-307">
                                 <rect key="frame" x="0.0" y="112" width="414" height="701"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearningCards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
-                                                    <rect key="frame" x="20" y="11.5" width="334" height="20.5"/>
+                                                    <rect key="frame" x="20" y="12" width="299" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJR-RT-tjh">
+                                                    <rect key="frame" x="324" y="5" width="45" height="34.5"/>
+                                                    <color key="tintColor" systemColor="systemGray2Color"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="statusButtonClicked:" destination="o5W-Uj-7vC" eventType="touchUpInside" id="xKX-OZ-YO1"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="qJR-RT-tjh" secondAttribute="trailing" constant="5" id="89H-MZ-ydJ"/>
                                                 <constraint firstItem="0Pf-Xu-apY" firstAttribute="centerY" secondItem="oCz-Tc-Q0z" secondAttribute="centerY" id="GVK-dx-nSM"/>
+                                                <constraint firstItem="0Pf-Xu-apY" firstAttribute="width" secondItem="oCz-Tc-Q0z" secondAttribute="width" multiplier="0.8" id="HP5-tz-Ac9"/>
+                                                <constraint firstAttribute="bottom" secondItem="qJR-RT-tjh" secondAttribute="bottom" constant="5" id="MCf-oX-JBw"/>
                                                 <constraint firstItem="0Pf-Xu-apY" firstAttribute="leading" secondItem="oCz-Tc-Q0z" secondAttribute="leading" constant="20" id="eab-d0-npz"/>
+                                                <constraint firstItem="qJR-RT-tjh" firstAttribute="top" secondItem="oCz-Tc-Q0z" secondAttribute="top" constant="5" id="ojO-HT-B7l"/>
                                                 <constraint firstAttribute="trailing" secondItem="0Pf-Xu-apY" secondAttribute="trailing" constant="20" id="rVp-LR-JPK"/>
+                                                <constraint firstItem="qJR-RT-tjh" firstAttribute="leading" secondItem="0Pf-Xu-apY" secondAttribute="trailing" constant="5" id="xgW-cj-Jey"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cardFrontLabel" destination="0Pf-Xu-apY" id="P2G-ix-S5A"/>
+                                            <outlet property="statusButton" destination="qJR-RT-tjh" id="Avl-Rp-0FW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -384,13 +401,20 @@
     <resources>
         <image name="arrow.left.circle.fill" catalog="system" width="128" height="123"/>
         <image name="arrow.right.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="123"/>
         <image name="graduationcap.fill" catalog="system" width="128" height="108"/>
         <image name="plus.square" catalog="system" width="128" height="114"/>
         <image name="shuffle.circle.fill" catalog="system" width="128" height="123"/>
         <image name="square.grid.2x2.fill" catalog="system" width="128" height="114"/>
         <image name="trash" catalog="system" width="117" height="128"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
