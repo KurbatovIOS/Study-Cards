@@ -19,5 +19,6 @@ struct Card: Identifiable, Codable{
     var id: UUID
     var front: String
     var back: String
+    var isLearned = false
 }
 

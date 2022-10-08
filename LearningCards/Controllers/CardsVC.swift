@@ -174,7 +174,10 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
         
-        //let card = ContentModel.collections[collectionId!].cards[indexPath.row]
+        //cell.cardIndex = indexPath.row
+        cell.card = filteredCards[indexPath.row]
+        cell.collectionId = self.collectionId
+       
         let card = filteredCards[indexPath.row]
         
         cell.setUpFrontLable(frontLabel: card.front)
@@ -189,10 +192,12 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             let selectedRowIndex = indexPath.row
             
             // TODO: move edit function into contentModel (problem: cant reload tableview data from model function)
-            let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
-                card.front == self.filteredCards[selectedRowIndex].front &&
-                card.back == self.filteredCards[selectedRowIndex].back
-            }
+//            let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
+//                card.front == self.filteredCards[selectedRowIndex].front &&
+//                card.back == self.filteredCards[selectedRowIndex].back
+//            }
+            
+            let cardId = self.model.getCardIndex(collectionId: self.collectionId!, front: self.filteredCards[selectedRowIndex].front, back: self.filteredCards[selectedRowIndex].back)
             
             if self.collectionId != nil && cardId != nil {
 

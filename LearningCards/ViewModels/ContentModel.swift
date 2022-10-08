@@ -84,4 +84,19 @@ class ContentModel {
         ContentModel.collections[collectionId].cards.removeAll()
         save()
     }
+    
+    func getCardIndex(collectionId: Int, front: String, back: String) -> Int? {
+        
+        let cardId = ContentModel.collections[collectionId].cards.firstIndex { card in
+            card.front == front && card.back == back
+        }
+        
+        return cardId
+    }
+    
+    func updateCardStatus(cardId: Int, collectionId: Int) {
+        
+        ContentModel.collections[collectionId].cards[cardId].isLearned.toggle()
+        save()
+    }
 }

@@ -217,7 +217,7 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCell", for: indexPath) as! CollectionCell
-        
+
         cell.setUpCell(collectionToDisplay: ContentModel.collections[indexPath.row])
         
         return cell
