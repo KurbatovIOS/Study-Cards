@@ -49,7 +49,7 @@
         <!--Collections-->
         <scene sceneID="mm8-m0-AKO">
             <objects>
-                <viewController id="tTg-rE-1Iu" customClass="CollectionsListVC" customModule="LearningCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tTg-rE-1Iu" customClass="CollectionsListVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nO5-AH-mns">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +64,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="9Xo-gq-EnF" customClass="CollectionCell" customModule="LearningCards" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="9Xo-gq-EnF" customClass="CollectionCell" customModule="LearnWithCards" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xfe-5i-iYa">
@@ -144,7 +144,7 @@
         <!--Cards-->
         <scene sceneID="NMT-U1-A2r">
             <objects>
-                <viewController id="CCm-bN-5C2" customClass="CardsVC" customModule="LearningCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CCm-bN-5C2" customClass="CardsVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48o-oV-kKO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,7 +153,7 @@
                                 <rect key="frame" x="0.0" y="112" width="414" height="701"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearningCards" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearnWithCards" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
@@ -238,7 +238,7 @@
         <!--Learn-->
         <scene sceneID="JEX-Dr-ZLC">
             <objects>
-                <viewController id="NSH-wo-8TX" customClass="LearnVC" customModule="LearningCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NSH-wo-8TX" customClass="LearnVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TUX-w3-cNS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +246,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eba-xE-IXO">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionCell" id="ayp-fq-RxP" customClass="LearnCell" customModule="LearningCards" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionCell" id="ayp-fq-RxP" customClass="LearnCell" customModule="LearnWithCards" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayp-fq-RxP" id="hxH-2q-aPG">
@@ -306,7 +306,7 @@
         <!--Learning CardVC-->
         <scene sceneID="lsR-vk-jVv">
             <objects>
-                <viewController id="Yce-j9-OeJ" customClass="LearningCardVC" customModule="LearningCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yce-j9-OeJ" customClass="LearningCardVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PZ4-b3-vhR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,24 +331,24 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.left.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Tc4-Xc-vUH">
-                                <rect key="frame" x="20" y="623.5" width="35" height="34"/>
+                                <rect key="frame" x="20" y="623.5" width="44" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="513-bL-jl6"/>
-                                    <constraint firstAttribute="height" constant="35" id="zht-vR-s2n"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="SX5-RK-t87"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="vMc-fb-6HS"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="lkq-tt-NLc">
-                                <rect key="frame" x="359" y="623.5" width="35" height="34"/>
+                                <rect key="frame" x="350" y="623.5" width="44" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="35" id="StI-wl-OmH"/>
-                                    <constraint firstAttribute="height" constant="35" id="bTg-06-elm"/>
+                                    <constraint firstAttribute="width" constant="44" id="StI-wl-OmH"/>
+                                    <constraint firstAttribute="height" constant="44" id="bTg-06-elm"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shuffle.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="SUo-Ih-f3c">
-                                <rect key="frame" x="189.5" y="623.5" width="35" height="34"/>
+                                <rect key="frame" x="185" y="623.5" width="44" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="F33-1R-B8b"/>
-                                    <constraint firstAttribute="width" constant="35" id="mfc-cP-mGY"/>
+                                    <constraint firstAttribute="height" constant="44" id="F33-1R-B8b"/>
+                                    <constraint firstAttribute="width" constant="44" id="mfc-cP-mGY"/>
                                 </constraints>
                             </imageView>
                         </subviews>

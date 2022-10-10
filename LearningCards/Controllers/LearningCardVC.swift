@@ -175,7 +175,7 @@ class LearningCardVC: UIViewController {
             isFront = true
             self.cardView.alpha = 0
             
-            UIView.animate(withDuration: 0.5) {
+            UIView.animate(withDuration: 0.7) {
                
                 self.cardView.alpha = 1
             }

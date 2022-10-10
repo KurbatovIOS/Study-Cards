@@ -39,11 +39,6 @@ class CardCell: UITableViewCell {
             return
         }
         
-//        let front = card!.front
-//        let back = card!.back
-//
-//        let cardIndex = model.getCardIndex(collectionId: collectionId!, front: front, back: back)
-        
         guard self.cardIndex != nil else {
             
             print("Couldn't get card index")
