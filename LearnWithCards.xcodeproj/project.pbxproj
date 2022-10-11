@@ -83,9 +83,9 @@
 		B8239CE928E9B78F00B63850 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B829A0A028B27E3700F34A70 /* LearnCell.swift */,
-				B84CDAE828AD43D000072232 /* CardCell.swift */,
 				B828B74D28A0318500E5B14C /* CollectionCell.swift */,
+				B84CDAE828AD43D000072232 /* CardCell.swift */,
+				B829A0A028B27E3700F34A70 /* LearnCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

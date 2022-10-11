@@ -16,6 +16,7 @@ class CardCell: UITableViewCell {
     
     var card: Card?
     var collectionId: Int?
+    
     var cardIndex: Int?
     
     func setUpFrontLable(frontLabel: String) {

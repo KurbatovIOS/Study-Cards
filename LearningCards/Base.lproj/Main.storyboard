@@ -314,8 +314,16 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CU0-qu-UX7" userLabel="CardFront">
                                 <rect key="frame" x="20" y="223" width="374" height="350"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="LDS-Ga-zZh">
+                                        <rect key="frame" x="339" y="5.5" width="30" height="29"/>
+                                        <color key="tintColor" systemColor="systemGray2Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="97c-Er-LKI"/>
+                                            <constraint firstAttribute="width" constant="30" id="j68-IU-4dI"/>
+                                        </constraints>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OM5-jb-bCB">
-                                        <rect key="frame" x="5" y="10" width="364" height="330"/>
+                                        <rect key="frame" x="5" y="40" width="364" height="300"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -323,8 +331,10 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
+                                    <constraint firstItem="OM5-jb-bCB" firstAttribute="top" secondItem="LDS-Ga-zZh" secondAttribute="bottom" constant="5" id="7rq-e5-Syc"/>
                                     <constraint firstAttribute="bottom" secondItem="OM5-jb-bCB" secondAttribute="bottom" constant="10" id="CSx-5N-u4H"/>
-                                    <constraint firstItem="OM5-jb-bCB" firstAttribute="top" secondItem="CU0-qu-UX7" secondAttribute="top" constant="10" id="cAO-8N-T6W"/>
+                                    <constraint firstItem="LDS-Ga-zZh" firstAttribute="top" secondItem="CU0-qu-UX7" secondAttribute="top" constant="5" id="DsT-rb-DR6"/>
+                                    <constraint firstAttribute="trailing" secondItem="LDS-Ga-zZh" secondAttribute="trailing" constant="5" id="Kx0-JI-Gcq"/>
                                     <constraint firstAttribute="trailing" secondItem="OM5-jb-bCB" secondAttribute="trailing" constant="5" id="dcL-qH-Loz"/>
                                     <constraint firstItem="OM5-jb-bCB" firstAttribute="leading" secondItem="CU0-qu-UX7" secondAttribute="leading" constant="5" id="gZq-tq-AYD"/>
                                     <constraint firstAttribute="height" constant="350" id="ngO-MT-5zZ"/>
@@ -374,6 +384,7 @@
                         <outlet property="nextImageView" destination="lkq-tt-NLc" id="lVw-nD-r3C"/>
                         <outlet property="previousImageView" destination="Tc4-Xc-vUH" id="TGR-tb-tDP"/>
                         <outlet property="shuffleImageView" destination="SUo-Ih-f3c" id="T5U-nw-ruv"/>
+                        <outlet property="statusImageView" destination="LDS-Ga-zZh" id="6z6-GD-SlT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gyr-sF-rCQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

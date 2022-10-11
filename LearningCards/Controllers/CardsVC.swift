@@ -48,6 +48,11 @@ class CardsVC: UIViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
     //MARK: - Bar buttons
     //TODO: Make button remove all cards instead of collection itself
     @IBAction func removeButtonAction(_ sender: Any) {

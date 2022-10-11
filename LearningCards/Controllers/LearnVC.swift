@@ -55,7 +55,8 @@ class LearnVC: UIViewController {
         let indexPath = tableView.indexPathForSelectedRow
         
         if indexPath != nil {
-            learningCardVC.collectionToDisplay = ContentModel.collections[indexPath!.row]
+            //learningCardVC.collectionToDisplay = ContentModel.collections[indexPath!.row]
+            learningCardVC.collectionIndex = indexPath!.row
         }
     }
     

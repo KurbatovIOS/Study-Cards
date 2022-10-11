@@ -14,23 +14,36 @@ class LearningCardVC: UIViewController {
     @IBOutlet weak var nextImageView: UIImageView!
     @IBOutlet weak var shuffleImageView: UIImageView!
     
+    @IBOutlet weak var statusImageView: UIImageView!
+    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardLabel: UILabel!
     
     var isFront: Bool = true
     var collectionToDisplay: Collection?
     var currentCardIndex: Int = 0
+    var collectionIndex: Int?
+    
+    var model = ContentModel()
     
     var player: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        guard collectionIndex != nil else {
+            print("No collection index")
+            return
+        }
+        
+        collectionToDisplay = ContentModel.collections[collectionIndex!]
+        
         setUpView()
         addPressGestures()
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
+        
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         navigationController?.popToRootViewController(animated: true)
     }
     
@@ -46,6 +59,7 @@ class LearningCardVC: UIViewController {
         cardView.layer.borderWidth = 1
         
         cardLabel.text = collectionToDisplay?.cards[currentCardIndex].front
+        updateStatus()
         cardLabel.numberOfLines = 0
         
         currentCardIndex = 0
@@ -63,16 +77,21 @@ class LearningCardVC: UIViewController {
         previousImageView.isUserInteractionEnabled = true
         shuffleImageView.isUserInteractionEnabled = true
         nextImageView.isUserInteractionEnabled = true
+        statusImageView.isUserInteractionEnabled = true
         
         let previousPressGesture = UITapGestureRecognizer(target: self, action: #selector(previousPress))
         let nextPressGesture = UITapGestureRecognizer(target: self, action: #selector(nextPress))
         let shufflePressGesture = UITapGestureRecognizer(target: self, action: #selector(shufflePress))
+        
         let cardPressGesture = UITapGestureRecognizer(target: self, action: #selector(flipCard))
+        
+        let cardDoubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(changeCardStatus))
         
         previousImageView.addGestureRecognizer(previousPressGesture)
         shuffleImageView.addGestureRecognizer(shufflePressGesture)
         nextImageView.addGestureRecognizer(nextPressGesture)
         cardView.addGestureRecognizer(cardPressGesture)
+        statusImageView.addGestureRecognizer(cardDoubleTapGesture)
     }
     
     @objc func flipCard() {
@@ -102,6 +121,24 @@ class LearningCardVC: UIViewController {
         isFront.toggle()
     }
     
+    @objc func changeCardStatus() {
+        model.updateCardStatus(cardId: currentCardIndex, collectionId: collectionIndex!)
+        updateStatus()
+//        statusImageView.tintColor = ContentModel.collections[collectionId!].cards[cardIndex!].isLearned ? .systemGreen : .systemGray2
+        
+//        let collectionIndex = ContentModel.collections.firstIndex { collection in
+//            collection == collectionToDisplay
+//        }
+        
+        
+    }
+    
+    func updateStatus() {
+        
+        guard collectionIndex != nil else { return }
+        statusImageView.tintColor = ContentModel.collections[collectionIndex!].cards[currentCardIndex].isLearned ? .systemGreen : .systemGray2
+    }
+    
     @objc func previousPress() {
         
         if currentCardIndex - 1 >= 0 {
@@ -124,6 +161,7 @@ class LearningCardVC: UIViewController {
             }
             
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            updateStatus()
             
             if nextImageView.tintColor == .gray {
                 nextImageView.tintColor = .systemBlue
@@ -157,6 +195,7 @@ class LearningCardVC: UIViewController {
             }
             
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            updateStatus()
             
             if previousImageView.tintColor == .gray {
                 previousImageView.tintColor = .systemBlue
@@ -180,7 +219,11 @@ class LearningCardVC: UIViewController {
                 self.cardView.alpha = 1
             }
             
+            //TODO: Change status button when cards are shuffled
+            //TODO: After shuffle status button does not change because of index
+            
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
+            updateStatus()
         }
     }
 }
