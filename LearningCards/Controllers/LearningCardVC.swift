@@ -122,21 +122,28 @@ class LearningCardVC: UIViewController {
     }
     
     @objc func changeCardStatus() {
-        model.updateCardStatus(cardId: currentCardIndex, collectionId: collectionIndex!)
+        
+        guard collectionToDisplay != nil else { return }
+        
+        let front = collectionToDisplay!.cards[currentCardIndex].front
+        let back = collectionToDisplay!.cards[currentCardIndex].back
+        
+        model.updateCardStatus(collectionId: collectionIndex!, front: front, back: back)
         updateStatus()
-//        statusImageView.tintColor = ContentModel.collections[collectionId!].cards[cardIndex!].isLearned ? .systemGreen : .systemGray2
-        
-//        let collectionIndex = ContentModel.collections.firstIndex { collection in
-//            collection == collectionToDisplay
-//        }
-        
-        
     }
     
     func updateStatus() {
         
-        guard collectionIndex != nil else { return }
-        statusImageView.tintColor = ContentModel.collections[collectionIndex!].cards[currentCardIndex].isLearned ? .systemGreen : .systemGray2
+        guard collectionIndex != nil && collectionToDisplay != nil else { return }
+        
+        let front = collectionToDisplay!.cards[currentCardIndex].front
+        let back = collectionToDisplay!.cards[currentCardIndex].back
+        
+        let cardIndex = model.getCardIndex(collectionId: collectionIndex!, front: front, back: back)
+        
+        guard cardIndex != nil else { return }
+        
+        statusImageView.tintColor = ContentModel.collections[collectionIndex!].cards[cardIndex!].isLearned ? .systemGreen : .systemGray2
     }
     
     @objc func previousPress() {
@@ -218,9 +225,6 @@ class LearningCardVC: UIViewController {
                
                 self.cardView.alpha = 1
             }
-            
-            //TODO: Change status button when cards are shuffled
-            //TODO: After shuffle status button does not change because of index
             
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
             updateStatus()

@@ -40,13 +40,10 @@ class CardCell: UITableViewCell {
             return
         }
         
-        guard self.cardIndex != nil else {
-            
-            print("Couldn't get card index")
-            return
-        }
+        let front = card!.front
+        let back = card!.back
         
-        model.updateCardStatus(cardId: cardIndex!, collectionId: collectionId!)
+        model.updateCardStatus(collectionId: collectionId!, front: front, back: back)
         
         updateButton()
     }

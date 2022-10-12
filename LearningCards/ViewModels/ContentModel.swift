@@ -94,9 +94,15 @@ class ContentModel {
         return cardId
     }
     
-    func updateCardStatus(cardId: Int, collectionId: Int) {
+    func updateCardStatus(collectionId: Int, front: String, back: String) {
         
-        ContentModel.collections[collectionId].cards[cardId].isLearned.toggle()
+        let cardIndex = ContentModel.collections[collectionId].cards.firstIndex { card in
+            card.front == front && card.back == back
+        }
+        
+        guard cardIndex != nil else { return }
+        
+        ContentModel.collections[collectionId].cards[cardIndex!].isLearned.toggle()
         save()
     }
 }
