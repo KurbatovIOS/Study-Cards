@@ -31,10 +31,7 @@ class LearningCardVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard collectionIndex != nil else {
-            print("No collection index")
-            return
-        }
+        guard collectionIndex != nil else { return }
         
         collectionToDisplay = ContentModel.collections[collectionIndex!]
         

@@ -34,11 +34,7 @@ class CardCell: UITableViewCell {
     
     @IBAction func statusButtonClicked(_ sender: Any) {
         
-        guard card != nil && collectionId != nil else {
-            
-            print("card or collectionId is missing")
-            return
-        }
+        guard card != nil && collectionId != nil else { return }
         
         let front = card!.front
         let back = card!.back

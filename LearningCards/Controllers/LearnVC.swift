@@ -21,8 +21,7 @@ class LearnVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.messageLabel.text = "You have no collections yet"
-        
+        self.messageLabel.text = "You don't have collections yet"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,11 +54,10 @@ class LearnVC: UIViewController {
         let indexPath = tableView.indexPathForSelectedRow
         
         if indexPath != nil {
-            //learningCardVC.collectionToDisplay = ContentModel.collections[indexPath!.row]
+            
             learningCardVC.collectionIndex = indexPath!.row
         }
     }
-    
 }
 
 extension LearnVC: UITableViewDelegate, UITableViewDataSource {

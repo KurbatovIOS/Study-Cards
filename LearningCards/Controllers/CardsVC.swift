@@ -54,7 +54,6 @@ class CardsVC: UIViewController {
     }
     
     //MARK: - Bar buttons
-    //TODO: Make button remove all cards instead of collection itself
     @IBAction func removeButtonAction(_ sender: Any) {
         
         if self.collectionId != nil  && !ContentModel.collections[self.collectionId!].cards.isEmpty {
@@ -115,7 +114,7 @@ class CardsVC: UIViewController {
                 let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
                 
                 //TODO: Edit message
-                let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
+                let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled in" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
                                 
                 self.present(warningAlert, animated: true)
             }
@@ -197,11 +196,6 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             let selectedRowIndex = indexPath.row
             
             // TODO: move edit function into contentModel (problem: cant reload tableview data from model function)
-//            let cardId = ContentModel.collections[self.collectionId!].cards.firstIndex { card in
-//                card.front == self.filteredCards[selectedRowIndex].front &&
-//                card.back == self.filteredCards[selectedRowIndex].back
-//            }
-            
             let cardId = self.model.getCardIndex(collectionId: self.collectionId!, front: self.filteredCards[selectedRowIndex].front, back: self.filteredCards[selectedRowIndex].back)
             
             if self.collectionId != nil && cardId != nil {
@@ -237,7 +231,7 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
                         let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
                         
                         //TODO: Edit message
-                        let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
+                        let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled in" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
                         
                         self.present(warningAlert, animated: true)
                     }

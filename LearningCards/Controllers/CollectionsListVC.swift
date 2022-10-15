@@ -29,8 +29,7 @@ class CollectionsListVC: UIViewController {
         
         model.loadSavedCollections()
         
-        //TODO: Correct label
-        messageLabel.text = "You have no collections yet"
+        messageLabel.text = "You don't have collections yet"
         
         messageLabel.alpha = ContentModel.collections.count > 0 ? 0 : 1
         
@@ -127,9 +126,7 @@ class CollectionsListVC: UIViewController {
     
     @IBAction func addCollectionButton(_ sender: Any) {
         
-        // TODO: Correct message
-        
-        let alert = self.model.createAlert(title: "Create collection", message: "Enter collection title", style: .alert)
+        let alert = self.model.createAlert(title: "Create collection", message: "Enter collection name", style: .alert)
         
         // Add text field
         alert.addTextField { textField in
@@ -146,7 +143,6 @@ class CollectionsListVC: UIViewController {
                 collection.title.lowercased() == collectionTitle.lowercased()
             }) {
                 
-                //TODO: Edit message
                 let warningAlert = self.model.createAlert(title: "This collection already exists", message: nil, style: .alert, isWarning: true)
                 
                 self.present(warningAlert, animated: true)
@@ -201,8 +197,6 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
         
         // set cell size
         let size = (collectionView.frame.width / 2) * 0.9
-        
-        // TODO: Configure size for Ipads
         
         return CGSize(width: size, height: size)
     }
