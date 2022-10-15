@@ -24,6 +24,12 @@ Tech stack: UIKit
 <img src="https://user-images.githubusercontent.com/105456398/196001281-b26ecf1f-1024-4636-a9ea-62551df323a0.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001226-87ebf1bf-4287-41fb-b793-59f7d9da4764.png" width="200" />
 
 
+## Learning
+
+<img src="https://user-images.githubusercontent.com/105456398/196001391-7bc28cc3-f9f1-448c-b235-55944e4d677c.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001408-e26a3a84-6f90-49cd-8157-aa287a19ea7f.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001443-48f8860a-4ff6-445a-abc8-910ec9216892.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001461-527a3339-d60b-4338-85b0-8e039c35b57f.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001510-fb4c0de9-ad61-4227-ae3c-a8c486fe5ee3.png" width="200" />
+
+
+
 
 
 
