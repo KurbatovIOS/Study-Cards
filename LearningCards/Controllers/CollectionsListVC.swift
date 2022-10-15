@@ -126,7 +126,7 @@ class CollectionsListVC: UIViewController {
     
     @IBAction func addCollectionButton(_ sender: Any) {
         
-        let alert = self.model.createAlert(title: "Create collection", message: "Enter collection name", style: .alert)
+        let alert = self.model.createAlert(title: "Create a new collection", message: "Enter a collection name", style: .alert)
         
         // Add text field
         alert.addTextField { textField in
