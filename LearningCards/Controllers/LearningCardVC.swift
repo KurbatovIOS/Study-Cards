@@ -216,6 +216,18 @@ class LearningCardVC: UIViewController {
         if collectionToDisplay!.cards.count > 1 {
             collectionToDisplay!.cards.shuffle()
             isFront = true
+            
+            let path = Bundle.main.path(forResource: "shuffle", ofType: "wav")
+            let url = URL(fileURLWithPath: path!)
+            
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+            }
+            catch {
+                print("Player error")
+            }
+            
             self.cardView.alpha = 0
             
             UIView.animate(withDuration: 0.7) {

@@ -14,6 +14,7 @@
 		B829A0A128B27E3700F34A70 /* LearnCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829A0A028B27E3700F34A70 /* LearnCell.swift */; };
 		B842E0C128E9F5990007D316 /* next.wav in Resources */ = {isa = PBXBuildFile; fileRef = B842E0C028E9F5990007D316 /* next.wav */; };
 		B84CDAE928AD43D000072232 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84CDAE828AD43D000072232 /* CardCell.swift */; };
+		B84DCE8828FAC94E0026080E /* shuffle.wav in Resources */ = {isa = PBXBuildFile; fileRef = B84DCE8728FAC94D0026080E /* shuffle.wav */; };
 		B8DBA250289BF35B00DA93F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */; };
 		B8DBA252289BF35B00DA93F0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */; };
 		B8DBA254289BF35B00DA93F0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBA253289BF35B00DA93F0 /* BaseVC.swift */; };
@@ -34,6 +35,7 @@
 		B829A0A028B27E3700F34A70 /* LearnCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnCell.swift; sourceTree = "<group>"; };
 		B842E0C028E9F5990007D316 /* next.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = next.wav; sourceTree = "<group>"; };
 		B84CDAE828AD43D000072232 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
+		B84DCE8728FAC94D0026080E /* shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffle.wav; sourceTree = "<group>"; };
 		B8DBA24C289BF35B00DA93F0 /* LearnWithCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnWithCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		B8239CE228E9B26C00B63850 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
+				B84DCE8728FAC94D0026080E /* shuffle.wav */,
 				B842E0C028E9F5990007D316 /* next.wav */,
 				B8239CE628E9B62500B63850 /* cardFlip.wav */,
 			);
@@ -201,6 +204,7 @@
 				B842E0C128E9F5990007D316 /* next.wav in Resources */,
 				B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */,
 				B8DBA25C289BF35E00DA93F0 /* LaunchScreen.storyboard in Resources */,
+				B84DCE8828FAC94E0026080E /* shuffle.wav in Resources */,
 				B8DBA259289BF35E00DA93F0 /* Assets.xcassets in Resources */,
 				B8DBA257289BF35B00DA93F0 /* Main.storyboard in Resources */,
 			);
