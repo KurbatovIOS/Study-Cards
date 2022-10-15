@@ -36,7 +36,7 @@
 		B842E0C028E9F5990007D316 /* next.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = next.wav; sourceTree = "<group>"; };
 		B84CDAE828AD43D000072232 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B84DCE8728FAC94D0026080E /* shuffle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shuffle.wav; sourceTree = "<group>"; };
-		B8DBA24C289BF35B00DA93F0 /* LearnWithCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnWithCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8DBA24C289BF35B00DA93F0 /* Study Cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B8DBA253289BF35B00DA93F0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 		B8DBA24D289BF35B00DA93F0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B8DBA24C289BF35B00DA93F0 /* LearnWithCards.app */,
+				B8DBA24C289BF35B00DA93F0 /* Study Cards.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,9 +146,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B8DBA24B289BF35B00DA93F0 /* LearnWithCards */ = {
+		B8DBA24B289BF35B00DA93F0 /* Study Cards */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B8DBA260289BF35E00DA93F0 /* Build configuration list for PBXNativeTarget "LearnWithCards" */;
+			buildConfigurationList = B8DBA260289BF35E00DA93F0 /* Build configuration list for PBXNativeTarget "Study Cards" */;
 			buildPhases = (
 				B8DBA248289BF35B00DA93F0 /* Sources */,
 				B8DBA249289BF35B00DA93F0 /* Frameworks */,
@@ -158,9 +158,9 @@
 			);
 			dependencies = (
 			);
-			name = LearnWithCards;
+			name = "Study Cards";
 			productName = LearningCards;
-			productReference = B8DBA24C289BF35B00DA93F0 /* LearnWithCards.app */;
+			productReference = B8DBA24C289BF35B00DA93F0 /* Study Cards.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -178,7 +178,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B8DBA247289BF35B00DA93F0 /* Build configuration list for PBXProject "LearnWithCards" */;
+			buildConfigurationList = B8DBA247289BF35B00DA93F0 /* Build configuration list for PBXProject "Study Cards" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -191,7 +191,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B8DBA24B289BF35B00DA93F0 /* LearnWithCards */,
+				B8DBA24B289BF35B00DA93F0 /* Study Cards */,
 			);
 		};
 /* End PBXProject section */
@@ -427,7 +427,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B8DBA247289BF35B00DA93F0 /* Build configuration list for PBXProject "LearnWithCards" */ = {
+		B8DBA247289BF35B00DA93F0 /* Build configuration list for PBXProject "Study Cards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8DBA25E289BF35E00DA93F0 /* Debug */,
@@ -436,7 +436,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B8DBA260289BF35E00DA93F0 /* Build configuration list for PBXNativeTarget "LearnWithCards" */ = {
+		B8DBA260289BF35E00DA93F0 /* Build configuration list for PBXNativeTarget "Study Cards" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B8DBA261289BF35E00DA93F0 /* Debug */,
