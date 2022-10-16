@@ -10,7 +10,11 @@ Tech stack: UIKit
 
 ## Collections
 
+To create a new collection use "Plus" button in the upper right corner. If you leave collection name blank it will be given the name "Collection " + number of this collection. To delete all your existing collections use the "Trash" button at the top of the screen.
+
 <img src="https://user-images.githubusercontent.com/105456398/196000228-2e4f4b0f-2129-4521-bd2c-dbd89911adf3.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196000266-53671e84-a93f-43de-8dee-9ee025c18f53.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196000365-1f7da5e1-1bd9-463b-9d3c-306637817632.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196000312-c9d22083-9d93-4ca6-8069-9ed66161016b.png" width="200" />
+
+You can rename or delete single collection by clicking on it and holding for a second.
 
 <img src="https://user-images.githubusercontent.com/105456398/196000433-d0793423-799d-4dc1-8fb4-b4e408c95cde.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196000535-46941698-0499-462c-a9f0-546ba03278da.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196000667-05be49d8-b296-4728-8396-8c4f69e368df.png" width="200" />
 
