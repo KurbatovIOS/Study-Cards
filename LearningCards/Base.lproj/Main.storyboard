@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJz-bx-rja">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFJ-eS-QDy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -29,6 +29,95 @@
             </objects>
             <point key="canvasLocation" x="103" y="-583"/>
         </scene>
+        <!--OnboardingVC-->
+        <scene sceneID="s1l-v8-9Ul">
+            <objects>
+                <viewController storyboardIdentifier="onboarding" id="mFJ-eS-QDy" customClass="OnboardingVC" customModule="Study_Cards" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QZy-qP-6az">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ovv-Fc-WWt">
+                                <rect key="frame" x="0.0" y="88" width="414" height="642"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pee-5x-djQ">
+                                    <size key="itemSize" width="407" height="663"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="C8H-3g-uph">
+                                        <rect key="frame" x="3.5" y="0.0" width="407" height="663"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LTN-VQ-UZN">
+                                            <rect key="frame" x="0.0" y="0.0" width="407" height="663"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="407" height="663"/>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w9e-J3-ELH">
+                                <rect key="frame" x="132" y="772" width="150" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.69846854304635764" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="iZ2-3P-SQ1"/>
+                                    <constraint firstAttribute="height" constant="50" id="ozb-9b-pM0"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonClicked:" destination="mFJ-eS-QDy" eventType="touchUpInside" id="USR-xH-HgX"/>
+                                </connections>
+                            </button>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="pH9-V3-F84">
+                                <rect key="frame" x="148.5" y="730" width="117" height="26"/>
+                                <color key="pageIndicatorTintColor" systemColor="systemGray5Color"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-uT-zeO">
+                                <rect key="frame" x="337" y="53" width="57" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.69611444536423839" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kvD-Sa-LBQ"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                <connections>
+                                    <action selector="skipButtonClicked:" destination="mFJ-eS-QDy" eventType="touchUpInside" id="ObI-nQ-tJh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NCS-oo-Iwo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DeR-uT-zeO" firstAttribute="top" secondItem="NCS-oo-Iwo" secondAttribute="top" constant="5" id="0IX-FK-phU"/>
+                            <constraint firstItem="Ovv-Fc-WWt" firstAttribute="leading" secondItem="NCS-oo-Iwo" secondAttribute="leading" id="0Sj-4i-fVR"/>
+                            <constraint firstItem="w9e-J3-ELH" firstAttribute="centerX" secondItem="QZy-qP-6az" secondAttribute="centerX" id="DJF-Va-h3a"/>
+                            <constraint firstItem="pH9-V3-F84" firstAttribute="centerX" secondItem="QZy-qP-6az" secondAttribute="centerX" id="OMO-gv-1He"/>
+                            <constraint firstItem="NCS-oo-Iwo" firstAttribute="trailing" secondItem="DeR-uT-zeO" secondAttribute="trailing" constant="20" id="Q7O-7F-suF"/>
+                            <constraint firstItem="NCS-oo-Iwo" firstAttribute="bottom" secondItem="w9e-J3-ELH" secondAttribute="bottom" constant="40" id="Snh-CX-d7U"/>
+                            <constraint firstItem="Ovv-Fc-WWt" firstAttribute="top" secondItem="NCS-oo-Iwo" secondAttribute="top" constant="40" id="b9x-bn-z5T"/>
+                            <constraint firstItem="pH9-V3-F84" firstAttribute="top" secondItem="Ovv-Fc-WWt" secondAttribute="bottom" id="jGP-UN-NtX"/>
+                            <constraint firstItem="w9e-J3-ELH" firstAttribute="top" secondItem="pH9-V3-F84" secondAttribute="bottom" constant="16" id="n3b-pd-TRd"/>
+                            <constraint firstItem="Ovv-Fc-WWt" firstAttribute="top" secondItem="DeR-uT-zeO" secondAttribute="bottom" constant="5" id="yEA-od-bJA"/>
+                            <constraint firstItem="Ovv-Fc-WWt" firstAttribute="trailing" secondItem="NCS-oo-Iwo" secondAttribute="trailing" id="yWz-CW-0sV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Ovv-Fc-WWt" id="r5Q-tE-DCo"/>
+                        <outlet property="nextButton" destination="w9e-J3-ELH" id="4FB-Qb-rku"/>
+                        <outlet property="pageControl" destination="pH9-V3-F84" id="V24-Bu-PEL"/>
+                        <outlet property="skipButton" destination="DeR-uT-zeO" id="Dup-AM-Clf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fra-ra-6KK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="949.27536231884062" y="-583.25892857142856"/>
+        </scene>
         <!--Collections-->
         <scene sceneID="wfq-yY-znm">
             <objects>
@@ -49,7 +138,7 @@
         <!--Collections-->
         <scene sceneID="mm8-m0-AKO">
             <objects>
-                <viewController id="tTg-rE-1Iu" customClass="CollectionsListVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="tTg-rE-1Iu" customClass="CollectionsListVC" customModule="Study_Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nO5-AH-mns">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +153,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="9Xo-gq-EnF" customClass="CollectionCell" customModule="LearnWithCards" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="9Xo-gq-EnF" customClass="CollectionCell" customModule="Study_Cards" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xfe-5i-iYa">
@@ -144,7 +233,7 @@
         <!--Cards-->
         <scene sceneID="NMT-U1-A2r">
             <objects>
-                <viewController id="CCm-bN-5C2" customClass="CardsVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CCm-bN-5C2" customClass="CardsVC" customModule="Study_Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="48o-oV-kKO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,7 +242,7 @@
                                 <rect key="frame" x="0.0" y="112" width="414" height="701"/>
                                 <color key="tintColor" name="AccentColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="LearnWithCards" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="Study_Cards" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
@@ -238,7 +327,7 @@
         <!--Learn-->
         <scene sceneID="JEX-Dr-ZLC">
             <objects>
-                <viewController id="NSH-wo-8TX" customClass="LearnVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="NSH-wo-8TX" customClass="LearnVC" customModule="Study_Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TUX-w3-cNS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -246,7 +335,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eba-xE-IXO">
                                 <rect key="frame" x="0.0" y="92" width="414" height="721"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionCell" id="ayp-fq-RxP" customClass="LearnCell" customModule="LearnWithCards" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="collectionCell" id="ayp-fq-RxP" customClass="LearnCell" customModule="Study_Cards" customModuleProvider="target">
                                         <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ayp-fq-RxP" id="hxH-2q-aPG">
@@ -273,7 +362,7 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-Va-5pa">
-                                <rect key="frame" x="186.5" y="438" width="41.5" height="20.5"/>
+                                <rect key="frame" x="20" y="438" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -283,11 +372,12 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="oft-OV-WT9" firstAttribute="bottom" secondItem="eba-xE-IXO" secondAttribute="bottom" id="2wo-ez-pl3"/>
+                            <constraint firstItem="lTf-Va-5pa" firstAttribute="centerY" secondItem="TUX-w3-cNS" secondAttribute="centerY" id="554-kG-NLB"/>
+                            <constraint firstItem="lTf-Va-5pa" firstAttribute="leading" secondItem="oft-OV-WT9" secondAttribute="leading" constant="20" id="BE1-Z9-Spj"/>
                             <constraint firstItem="oft-OV-WT9" firstAttribute="trailing" secondItem="eba-xE-IXO" secondAttribute="trailing" id="CVE-FN-Ors"/>
                             <constraint firstItem="eba-xE-IXO" firstAttribute="leading" secondItem="oft-OV-WT9" secondAttribute="leading" id="XPF-hj-WgR"/>
                             <constraint firstItem="eba-xE-IXO" firstAttribute="top" secondItem="oft-OV-WT9" secondAttribute="top" id="adZ-VT-eIl"/>
-                            <constraint firstItem="lTf-Va-5pa" firstAttribute="centerY" secondItem="TUX-w3-cNS" secondAttribute="centerY" id="nml-a7-Ix0"/>
-                            <constraint firstItem="lTf-Va-5pa" firstAttribute="centerX" secondItem="TUX-w3-cNS" secondAttribute="centerX" id="xqC-OD-UXt"/>
+                            <constraint firstItem="oft-OV-WT9" firstAttribute="trailing" secondItem="lTf-Va-5pa" secondAttribute="trailing" constant="20" id="mSq-YL-2Jl"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Learn" id="hI5-0G-hQf">
@@ -306,7 +396,7 @@
         <!--Learning CardVC-->
         <scene sceneID="lsR-vk-jVv">
             <objects>
-                <viewController id="Yce-j9-OeJ" customClass="LearningCardVC" customModule="LearnWithCards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Yce-j9-OeJ" customClass="LearningCardVC" customModule="Study_Cards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PZ4-b3-vhR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -426,6 +516,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

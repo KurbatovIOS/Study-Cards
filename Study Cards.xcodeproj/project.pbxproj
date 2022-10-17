@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B81CC0DA28FDD8B3008C2A2A /* OnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81CC0D928FDD8B3008C2A2A /* OnboardingVC.swift */; };
+		B81CC0DC28FDDC52008C2A2A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */; };
 		B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8239CE628E9B62500B63850 /* cardFlip.wav */; };
 		B826B1CC28B79B69009EEC3F /* LearningCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */; };
 		B828B74E28A0318500E5B14C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828B74D28A0318500E5B14C /* CollectionCell.swift */; };
@@ -28,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B81CC0D928FDD8B3008C2A2A /* OnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingVC.swift; sourceTree = "<group>"; };
+		B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		B8239CE628E9B62500B63850 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
 		B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCardVC.swift; sourceTree = "<group>"; };
 		B828B74D28A0318500E5B14C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
@@ -61,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B81CC0D828FDD88B008C2A2A /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B81CC0D928FDD8B3008C2A2A /* OnboardingVC.swift */,
+			);
+			path = onboarding;
+			sourceTree = "<group>";
+		};
 		B8239CE228E9B26C00B63850 /* Sound */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,6 +86,7 @@
 		B8239CE828E9B77B00B63850 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B81CC0D828FDD88B008C2A2A /* onboarding */,
 				B8DBA253289BF35B00DA93F0 /* BaseVC.swift */,
 				B8FA89C928ABFCB4006DD571 /* CollectionsListVC.swift */,
 				B8FA89CB28ABFD4F006DD571 /* CardsVC.swift */,
@@ -97,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B8DBA263289BF41300DA93F0 /* Collection.swift */,
+				B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -217,12 +231,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B81CC0DC28FDDC52008C2A2A /* OnboardingSlide.swift in Sources */,
 				B8DBA254289BF35B00DA93F0 /* BaseVC.swift in Sources */,
 				B829A09E28B27E1100F34A70 /* LearnVC.swift in Sources */,
 				B8DBA264289BF41300DA93F0 /* Collection.swift in Sources */,
 				B8DBA266289BF46E00DA93F0 /* ContentModel.swift in Sources */,
 				B828B74E28A0318500E5B14C /* CollectionCell.swift in Sources */,
 				B8DBA250289BF35B00DA93F0 /* AppDelegate.swift in Sources */,
+				B81CC0DA28FDD8B3008C2A2A /* OnboardingVC.swift in Sources */,
 				B8DBA252289BF35B00DA93F0 /* SceneDelegate.swift in Sources */,
 				B829A0A128B27E3700F34A70 /* LearnCell.swift in Sources */,
 				B8FA89CC28ABFD4F006DD571 /* CardsVC.swift in Sources */,
