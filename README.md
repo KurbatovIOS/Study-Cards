@@ -35,7 +35,7 @@ You must have at least one non-empty collection to begin training. All non-empty
 
 <img src="https://user-images.githubusercontent.com/105456398/196001391-7bc28cc3-f9f1-448c-b235-55944e4d677c.png" width="200" />
 
-Click on a card to turn it over and see the text on the other side. If you have the card memorized, mark it as learned, as you would in a list of cards. Use the arrows to move between cards. 
+Click on a card to turn it over and see the text on the other side. If you have the card memorized, mark it as learned, as you would in a list of cards. Use the arrows to move between cards. You can shuffle cards by pressing the middle button.
 
 <img src="https://user-images.githubusercontent.com/105456398/196001408-e26a3a84-6f90-49cd-8157-aa287a19ea7f.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001443-48f8860a-4ff6-445a-abc8-910ec9216892.png" width="200" /> <img src="https://user-images.githubusercontent.com/105456398/196001461-527a3339-d60b-4338-85b0-8e039c35b57f.png" width="200" />
 
