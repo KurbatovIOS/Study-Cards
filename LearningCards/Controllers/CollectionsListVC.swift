@@ -134,7 +134,7 @@ class CollectionsListVC: UIViewController {
             textField.autocapitalizationType = .sentences
         }
         
-        // Set alert buttons 
+        // Set alert buttons
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { _ in
             
             let collectionTitle = alert.textFields![0].text ?? ""

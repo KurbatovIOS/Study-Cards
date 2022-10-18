@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFJ-eS-QDy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FJz-bx-rja">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -243,23 +243,23 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="Study_Cards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.5" width="374" height="44.5"/>
+                                        <rect key="frame" x="20" y="55.5" width="374" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
-                                                    <rect key="frame" x="20" y="12" width="299" height="20.5"/>
+                                                    <rect key="frame" x="20" y="12.5" width="299" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJR-RT-tjh">
-                                                    <rect key="frame" x="324" y="5" width="45" height="34.5"/>
+                                                    <rect key="frame" x="324" y="5" width="45" height="35"/>
                                                     <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system" title=" "/>
                                                     <connections>
                                                         <action selector="statusButtonClicked:" destination="o5W-Uj-7vC" eventType="touchUpInside" id="xKX-OZ-YO1"/>
                                                     </connections>

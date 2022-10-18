@@ -80,58 +80,58 @@ class CardsVC: UIViewController {
         guard collectionId != nil else {
             return
         }
-        
+
         // TODO: Change message
         let alert = self.model.createAlert(title: "Creat a new card", message: nil, style: .alert)
-        
+
         alert.addTextField { textField in
-            
+
             textField.placeholder = "front"
             textField.autocapitalizationType = .sentences
         }
-        
+
         alert.addTextField { textField in
-            
+
             textField.placeholder = "back"
             textField.autocapitalizationType = .sentences
         }
-        
+
         alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { action in
-            
+
             // Get front and back titles
             let front = alert.textFields?[0].text
             let back = alert.textFields?[1].text
-            
+
             guard front != nil && back != nil else {
                 return
             }
-            
+
             // If a cards with the same front and back already exists or if front or back is blank do nothing
             if ContentModel.collections[self.collectionId!].cards.contains(where: { card in
                 card.front.lowercased() == front?.lowercased() && card.back.lowercased() == back?.lowercased()
             }) || front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == "" {
-                
+
                 let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
-                
+
                 //TODO: Edit message
                 let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled in" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
-                                
+
                 self.present(warningAlert, animated: true)
             }
             else {
                 // else add a new card with given fron and back to the collection
                 self.model.addCard(collectionId: self.collectionId!, front: front!, back: back!)
                 self.filteredCards = ContentModel.collections[self.collectionId!].cards
-                    
+
                 // Hide message if there is a card
                 if ContentModel.collections[self.collectionId!].cards.count > 0 {
                     self.messageLabel.alpha = 0
                 }
-                    
+
                 self.tableView.reloadData()
             }
         }))
-    
+
         present(alert, animated: true)
     }
 }
@@ -268,16 +268,24 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
             }
             
             if self.collectionId != nil && cardId != nil {
-
-                ContentModel.collections[self.collectionId!].cards.remove(at: cardId!)
-                self.filteredCards.remove(at: selectedRowIndex)
                 
-                self.model.save()
-                self.tableView.reloadData()
+                let deleteAlert = self.model.createAlert(title: "Delete this card?", message: "Are you sure you want to delete this card?", style: .alert)
+                            
+                // Remove action
+                deleteAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    
+                    ContentModel.collections[self.collectionId!].cards.remove(at: cardId!)
+                    self.filteredCards.remove(at: selectedRowIndex)
+                    
+                    self.model.save()
+                    self.tableView.reloadData()
+                    
+                    if ContentModel.collections[self.collectionId!].cards.count < 1 {
+                        self.messageLabel.alpha = 1
+                    }
+                }))
                 
-                if ContentModel.collections[self.collectionId!].cards.count < 1 {
-                    self.messageLabel.alpha = 1
-                }
+                self.present(deleteAlert, animated: true)
             }
             success(true)
         }
