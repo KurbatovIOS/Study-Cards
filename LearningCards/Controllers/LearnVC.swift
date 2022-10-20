@@ -21,7 +21,7 @@ class LearnVC: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.messageLabel.text = "You need to have at least one non-empty collection to start training"
+        self.messageLabel.text = "You must have at least one non-empty collection to begin training"
     }
     
     override func viewWillAppear(_ animated: Bool) {
