@@ -81,7 +81,6 @@ class CardsVC: UIViewController {
             return
         }
 
-        // TODO: Change message
         let alert = self.model.createAlert(title: "Creat a new card", message: nil, style: .alert)
 
         alert.addTextField { textField in
@@ -113,7 +112,6 @@ class CardsVC: UIViewController {
 
                 let isBlank = front?.trimmingCharacters(in: .whitespaces) == "" || back?.trimmingCharacters(in: .whitespaces) == ""
 
-                //TODO: Edit message
                 let warningAlert = self.model.createAlert(title: isBlank ? "Both fields must be filled in" : "This card is already in \(ContentModel.collections[self.collectionId!].title)", message: nil, style: .alert, isWarning: true)
 
                 self.present(warningAlert, animated: true)
