@@ -50,8 +50,10 @@ class CollectionsListVC: UIViewController {
         
         if let indexPath = self.collectionView.indexPathForItem(at: point) {
                         
+            let alertStyle: UIAlertController.Style = UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet
+            
             // Main alert
-            let actionSheet = self.model.createAlert(title: nil, message: nil, style: .actionSheet)
+            let actionSheet = self.model.createAlert(title: nil, message: nil, style: alertStyle)
             
             // Delete action
             let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
