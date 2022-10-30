@@ -14,6 +14,7 @@ class LearnVC: UIViewController {
     @IBOutlet weak var messageLabel: UILabel!
     
     var collectionsWithCards: [Collection] = []
+    var model = ContentModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,7 +56,11 @@ class LearnVC: UIViewController {
         
         if indexPath != nil {
             
-            learningCardVC.collectionIndex = indexPath!.row
+            guard let index = model.getCollectionIndex(title: collectionsWithCards[indexPath!.row].title) else {
+                return
+            }
+            
+            learningCardVC.collectionIndex = index
         }
     }
 }
@@ -71,7 +76,7 @@ extension LearnVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "collectionCell", for: indexPath) as! LearnCell
         
-        cell.setUpLabel(collectionToDisplay: ContentModel.collections[indexPath.row])
+        cell.setUpLabel(collectionToDisplay: collectionsWithCards[indexPath.row])
         
         return cell
     }

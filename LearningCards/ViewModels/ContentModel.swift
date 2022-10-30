@@ -85,6 +85,15 @@ class ContentModel {
         save()
     }
     
+    func getCollectionIndex(title: String) -> Int? {
+        
+        let collectionIndex = ContentModel.collections.firstIndex { collection in
+            collection.title == title
+        }
+        
+        return collectionIndex
+    }
+    
     func getCardIndex(collectionId: Int, front: String, back: String) -> Int? {
         
         let cardId = ContentModel.collections[collectionId].cards.firstIndex { card in
