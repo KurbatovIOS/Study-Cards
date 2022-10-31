@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B81CC0DC28FDDC52008C2A2A /* OnboardingSlide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */; };
 		B8239CE728E9B62500B63850 /* cardFlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = B8239CE628E9B62500B63850 /* cardFlip.wav */; };
 		B826B1CC28B79B69009EEC3F /* LearningCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */; };
 		B828B74E28A0318500E5B14C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B828B74D28A0318500E5B14C /* CollectionCell.swift */; };
@@ -29,7 +28,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlide.swift; sourceTree = "<group>"; };
 		B8239CE628E9B62500B63850 /* cardFlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cardFlip.wav; sourceTree = "<group>"; };
 		B826B1CB28B79B69009EEC3F /* LearningCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningCardVC.swift; sourceTree = "<group>"; };
 		B828B74D28A0318500E5B14C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
@@ -76,7 +74,6 @@
 		B8239CE828E9B77B00B63850 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B8DBA253289BF35B00DA93F0 /* BaseVC.swift */,
 				B8FA89C928ABFCB4006DD571 /* CollectionsListVC.swift */,
 				B8FA89CB28ABFD4F006DD571 /* CardsVC.swift */,
 				B829A09D28B27E1100F34A70 /* LearnVC.swift */,
@@ -99,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				B8DBA263289BF41300DA93F0 /* Collection.swift */,
-				B81CC0DB28FDDC52008C2A2A /* OnboardingSlide.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -133,6 +129,7 @@
 			children = (
 				B8DBA24F289BF35B00DA93F0 /* AppDelegate.swift */,
 				B8DBA251289BF35B00DA93F0 /* SceneDelegate.swift */,
+				B8DBA253289BF35B00DA93F0 /* BaseVC.swift */,
 				B8239CE828E9B77B00B63850 /* Controllers */,
 				B8239CE928E9B78F00B63850 /* Views */,
 				B8239CEB28E9B79F00B63850 /* ViewModels */,
@@ -220,7 +217,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B81CC0DC28FDDC52008C2A2A /* OnboardingSlide.swift in Sources */,
 				B8DBA254289BF35B00DA93F0 /* BaseVC.swift in Sources */,
 				B829A09E28B27E1100F34A70 /* LearnVC.swift in Sources */,
 				B8DBA264289BF41300DA93F0 /* Collection.swift in Sources */,
@@ -378,7 +374,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = G77J479352;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LearningCards/Info.plist;
@@ -412,7 +408,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = G77J479352;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LearningCards/Info.plist;

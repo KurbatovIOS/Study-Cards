@@ -198,7 +198,7 @@ extension CollectionsListVC: UICollectionViewDelegate, UICollectionViewDataSourc
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         // set cell size
-        let size = (collectionView.frame.width / 2) * 0.9
+        let size = UIDevice.current.userInterfaceIdiom == .pad ?  collectionView.frame.width * 0.3 : collectionView.frame.width * 0.45
         
         return CGSize(width: size, height: size)
     }
