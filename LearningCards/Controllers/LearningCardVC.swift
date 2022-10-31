@@ -161,7 +161,7 @@ class LearningCardVC: UIViewController {
             currentCardIndex -= 1
             
             UIView.animate(withDuration: 0.3) {
-                self.cardView.frame = CGRect(x: 500, y: self.cardView.frame.origin.y, width: self.cardView.frame.width, height: self.cardView.frame.height)
+                self.cardView.frame = CGRect(x: 1500, y: self.cardView.frame.origin.y, width: self.cardView.frame.width, height: self.cardView.frame.height)
             }
             
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
@@ -195,7 +195,7 @@ class LearningCardVC: UIViewController {
             currentCardIndex += 1
             
             UIView.animate(withDuration: 0.3) {
-                self.cardView.frame = CGRect(x: -500, y: self.cardView.frame.origin.y, width: self.cardView.frame.width, height: self.cardView.frame.height)
+                self.cardView.frame = CGRect(x: -1500, y: self.cardView.frame.origin.y, width: self.cardView.frame.width, height: self.cardView.frame.height)
             }
             
             cardLabel.text = collectionToDisplay!.cards[currentCardIndex].front
