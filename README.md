@@ -2,7 +2,7 @@
 
 Flashcards help you learn new foreign words, terms or whatever you want to put on them.
 
-You can <a href="https://apple.co/3sTU9ju" target="_blank">download</a>! it from App Store now!
+You can <a href="https://apple.co/3sTU9ju" target="_blank">download</a> it from App Store now!
 
 Tech stack: UIKit
 
