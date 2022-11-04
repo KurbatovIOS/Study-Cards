@@ -178,7 +178,6 @@ extension CardsVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cardCell", for: indexPath) as! CardCell
         
-        //cell.cardIndex = indexPath.row
         cell.card = filteredCards[indexPath.row]
         cell.collectionId = self.collectionId
        

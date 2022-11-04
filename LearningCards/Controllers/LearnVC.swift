@@ -19,6 +19,8 @@ class LearnVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setIPadBackground()
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -61,6 +63,13 @@ class LearnVC: UIViewController {
             }
             
             learningCardVC.collectionIndex = index
+        }
+    }
+    
+    private func setIPadBackground() {
+        
+        if UIDevice.current.userInterfaceIdiom == .pad && traitCollection.userInterfaceStyle == .dark {
+            view.backgroundColor = .black
         }
     }
 }
