@@ -98,7 +98,7 @@
                             </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="LfO-Ze-GcH"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ED7-RV-bDH" firstAttribute="centerY" secondItem="nO5-AH-mns" secondAttribute="centerY" id="DRn-Sj-LmQ"/>
                             <constraint firstItem="ED7-RV-bDH" firstAttribute="centerX" secondItem="nO5-AH-mns" secondAttribute="centerX" id="KQ2-ox-MI1"/>
@@ -146,20 +146,20 @@
                                 <color key="tintColor" name="AccentColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cardCell" id="o5W-Uj-7vC" customClass="CardCell" customModule="Study_Cards" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="55.333332061767578" width="390" height="45"/>
+                                        <rect key="frame" x="20" y="55.333332061767578" width="390" height="45.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o5W-Uj-7vC" id="oCz-Tc-Q0z">
-                                            <rect key="frame" x="0.0" y="0.0" width="390" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="45.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Pf-Xu-apY">
-                                                    <rect key="frame" x="20" y="12" width="312" height="21"/>
+                                                    <rect key="frame" x="20" y="12.333333333333336" width="312" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qJR-RT-tjh">
-                                                    <rect key="frame" x="337" y="5" width="48" height="35"/>
+                                                    <rect key="frame" x="337" y="5" width="48" height="35.333333333333336"/>
                                                     <color key="tintColor" systemColor="systemGray2Color"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="checkmark.circle.fill" catalog="system" title=" "/>

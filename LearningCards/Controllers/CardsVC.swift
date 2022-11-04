@@ -23,6 +23,8 @@ class CardsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = traitCollection.userInterfaceStyle == .light ? .systemGray6 : .black
+        
         navigationItem.title = ContentModel.collections[collectionId!].title
         
         searchController.searchBar.delegate = self
